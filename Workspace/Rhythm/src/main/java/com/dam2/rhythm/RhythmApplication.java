@@ -29,17 +29,13 @@ public class RhythmApplication {
 		SpringApplication.run(RhythmApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner cargarUsuarios(RolRepositorio rolRepos,UsuarioRepositorio usuarRepos) {
+	//@Bean
+	public CommandLineRunner cargarUsuarios(RolRepositorio rolRepos,UsuarioRepositorio usuarRepos,ArtistaRepositorio artisRepos,IntegranteRepositorio integRespos,GeneroRepositorio generRepos,MusicaRepositorio musicRepos) {
 		return (args) -> {
 			rolRepos.save(new Rol("ADMIN"));
 			rolRepos.save(new Rol("USUARIO"));
 			usuarRepos.save(new Usuario(rolRepos.findByNombre("ADMIN"), "admin", "nombre", "apellido", "admin@correo.com", "admin"));
-		};
-	}
-	@Bean
-	public CommandLineRunner cargarDatos(ArtistaRepositorio artisRepos,IntegranteRepositorio integRespos,GeneroRepositorio generRepos,MusicaRepositorio musicRepos) {
-		return (args) -> {
+		
 			artisRepos.save(new Artista("Michael Jackson"));
 			artisRepos.save(new Artista("The Weeknd"));
 			artisRepos.save(new Artista("Queen"));

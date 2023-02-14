@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Alta usuario</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+	<div class="container ">
+		<div class="card bg-light ">
+			<article class="card-body mx-auto" style="max-width: 400px;">
+				<h4 class="card-title mt-3 text-center">Login</h4>
+				<form action="#" th:action="@{/postlogin}"
+				th:object="${usuarioLoginForm}" method="post">
+					<div class="form-group input-group">
+						<input name="" class="form-control" placeholder="Email"
+							type="email" th:field="*{email}">
+					</div>
+					<br>
+					<div class="form-group input-group">
+						
+						<input class="form-control" placeholder="Contraseña"
+							type="password" th:field="*{password}">
+					</div>
+					<div class="form-group">
+					<br>
+						<button type="submit" class="btn btn-dark btn-block">
+							Enviar</button>
+					</div>
+					<br>
+					<p class="text-center">
+						¿Aun no estás registrado? <a href="/altausuario">Sign In</a>
+					</p>
+				</form>
+			</article>
+		</div>
+
+	</div>
+
+</body>
+</html>
