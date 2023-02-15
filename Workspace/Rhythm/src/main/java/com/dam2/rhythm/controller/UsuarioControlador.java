@@ -67,7 +67,7 @@ public class UsuarioControlador {
 			session.setAttribute("error", "Las contraseñas no son iguales.");
 			return "/altausuario";
 		}
-		Usuario usuNuevo = new Usuario(rolRepos.findByNombre("USUARIO"), usuForm.getNick(), usuForm.getNombre(), usuForm.getApellido(), usuForm.getEmail(), usuForm.getPassword());
+		Usuario usuNuevo = new Usuario(rolRepos.findByNombre("USER"), usuForm.getNick(), usuForm.getNombre(), usuForm.getApellido(), usuForm.getEmail(), usuForm.getPassword());
 		usuarRepos.save(usuNuevo);
 		modelo.addAttribute("mensaje", usuForm.getNick() + " dado de alta correctamente.");
 		session.setAttribute("usuario", usuNuevo);

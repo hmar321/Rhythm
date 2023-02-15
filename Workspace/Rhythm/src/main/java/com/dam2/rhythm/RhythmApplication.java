@@ -33,7 +33,7 @@ public class RhythmApplication {
 	public CommandLineRunner cargarUsuarios(RolRepositorio rolRepos,UsuarioRepositorio usuarRepos,ArtistaRepositorio artisRepos,IntegranteRepositorio integRespos,GeneroRepositorio generRepos,MusicaRepositorio musicRepos) {
 		return (args) -> {
 			rolRepos.save(new Rol("ADMIN"));
-			rolRepos.save(new Rol("USUARIO"));
+			rolRepos.save(new Rol("USER"));
 			usuarRepos.save(new Usuario(rolRepos.findByNombre("ADMIN"), "admin", "nombre", "apellido", "admin@correo.com", "admin"));
 		
 			artisRepos.save(new Artista("Michael Jackson"));
