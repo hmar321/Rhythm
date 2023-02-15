@@ -28,6 +28,9 @@ public class UsuarioControlador {
 	@Autowired
 	private UsuarioRepositorio usuarRepos;
 	
+	
+	
+	
 	@GetMapping("/")
 	public String login(UsuarioLoginForm usuarioLoginForm) {
 		return "/index";
@@ -43,7 +46,11 @@ public class UsuarioControlador {
 		System.out.println("en login post loginForm.getUserEmail()="+usuarioLoginForm.getEmail());
 		Usuario usuario=usuarRepos.findByEmail(usuarioLoginForm.getEmail());
 		if (usuario.getEmail().equals(usuarioLoginForm.getEmail())&&usuario.getPassword().equals(usuarioLoginForm.getPassword())) {
-			session.setAttribute("usuario","ASd");
+			if (usuario.getRol()==rolRepos.findByNombre("ADMIN")) {
+				session.setAttribute("admin","admin");
+				return "/inicioadmin";
+			}
+			session.setAttribute("usuario","user");
 			return "/inicio";
 		}else {
 			session.setAttribute("error", "usuario/email incorrectos");
