@@ -35,13 +35,15 @@ public class UsuarioControlador {
 	@PostMapping(path = "/postlogin")
 	public String checkLoginInfo(@Valid UsuarioLoginForm usuarioLoginForm, BindingResult bindingResult,
 			HttpSession session) {
-		System.out.println("en login post");
 		if (bindingResult.hasErrors()) {
 			session.setAttribute("error", "Usuario/email incorrectos.");
 			return "/index";
 		}
-		System.out.println("en login post loginForm.getUserEmail()=" + usuarioLoginForm.getEmail());
 		Usuario usuario = usuarRepos.findByEmail(usuarioLoginForm.getEmail());
+		if (usuario==null) {
+			session.setAttribute("error", "El usuario no está registrado.");
+			return "/index";
+		}
 		if (usuario.getEmail().equals(usuarioLoginForm.getEmail())
 				&& usuario.getPassword().equals(usuarioLoginForm.getPassword())) {
 			if (usuario.getRol() == rolRepos.findByNombre("ADMIN")) {
@@ -49,7 +51,7 @@ public class UsuarioControlador {
 				return "/inicioadmin";
 			}
 			session.setAttribute("codigo", "USER");
-			session.setAttribute("usuario", usuario.getNick());
+			session.setAttribute("usuario", usuario.getEmail());
 			return "/inicio";
 		} else {
 			session.setAttribute("error", "Usuario/email incorrectos.");
@@ -85,7 +87,7 @@ public class UsuarioControlador {
 				usuarioAltaForm.getNombre(), usuarioAltaForm.getApellido(), usuarioAltaForm.getEmail(),
 				usuarioAltaForm.getPassword());
 		usuarRepos.save(usuNuevo);
-		session.setAttribute("usuario", usuarioAltaForm.getNick());
+		session.setAttribute("usuario", usuNuevo.getEmail());
 		return "/inicio";
 	}
 

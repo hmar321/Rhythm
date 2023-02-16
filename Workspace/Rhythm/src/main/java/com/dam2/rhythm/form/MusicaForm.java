@@ -4,16 +4,18 @@ import com.dam2.rhythm.model.Artista;
 import com.dam2.rhythm.model.Genero;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 
 public class MusicaForm {
 	@NotNull
 	private String titulo;
 	@NotNull
 	private Artista artista;
-	@NotNull
+	@NotEmpty
 	private String estreno;
 	@NotNull
 	private Genero genero;
+
 	public String getTitulo() {
 		return titulo;
 	}
@@ -45,6 +47,5 @@ public class MusicaForm {
 	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
-	
 
 }

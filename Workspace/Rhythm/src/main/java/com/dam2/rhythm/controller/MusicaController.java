@@ -38,14 +38,11 @@ public class MusicaController {
 	private ArtistaRepositorio artisRepos;
 
 	@GetMapping(path = "/listamusicas")
-	public String listaMusicas(Model modelo, HttpSession session,UsuarioLoginForm usuarioLoginForm) {
+	public String listaMusicas(Model modelo,HttpSession session) {
 		try {
-			if (!session.getAttribute("codigo").equals("ADMIN")) {
-				return UsuarioControlador.login(usuarioLoginForm, session);
-			}
+			session.getAttribute("codigo").equals("x");
 		} catch (Exception e) {
-			return UsuarioControlador.login(usuarioLoginForm, session);
-
+			return "/error";
 		}
 		List<Musica> listaMusicas = listMusicas(musicRespos);
 		modelo.addAttribute("listaMusicas",listaMusicas);
@@ -58,6 +55,7 @@ public class MusicaController {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
 				return UsuarioControlador.login(usuarioLoginForm, session);
 			}
+			
 		} catch (Exception e) {
 			return UsuarioControlador.login(usuarioLoginForm, session);
 
@@ -83,7 +81,7 @@ public class MusicaController {
 		musiNueva.getGeneros().add(musicaForm.getGenero());
 		musicRespos.save(musiNueva);
 		session.setAttribute("mensaje", musicaForm.getTitulo());
-		return listaMusicas(modelo,session,usuarioLoginForm);
+		return listaMusicas(modelo,session);
 	}
 
 	private List<Musica> listMusicas(MusicaRepositorio musicasRepositorio) {

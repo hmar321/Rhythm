@@ -92,6 +92,7 @@ public class Usuario {
 	public void setListas(List<Lista> lista) {
 		this.listas = lista;
 	}
+	
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", rol=" + rol.getNombre() + ", nick=" + nick + ", nombre=" + nombre + ", apellido=" + apellido
