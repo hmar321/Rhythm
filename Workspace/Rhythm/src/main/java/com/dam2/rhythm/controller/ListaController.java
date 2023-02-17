@@ -52,7 +52,7 @@ public class ListaController {
 			return "/error";
 		}
 		Usuario user = usuarRepos.findByEmail(session.getAttribute("usuario").toString());
-		modelo.addAttribute("listasUsuario", user);
+		modelo.addAttribute("usuario", user);
 		return "/crearlista";
 	}
 	

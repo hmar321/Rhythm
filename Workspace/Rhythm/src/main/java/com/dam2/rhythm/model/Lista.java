@@ -27,6 +27,10 @@ public class Lista {
 	private List<Musica> musicas;
 	private Integer numMusicas;
 
+	
+	public Lista() {
+	}
+
 	public Lista(Usuario usuario, String titulo) {
 		this.usuario = usuario;
 		this.titulo = titulo;

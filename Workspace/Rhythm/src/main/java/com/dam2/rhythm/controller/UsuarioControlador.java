@@ -95,9 +95,11 @@ public class UsuarioControlador {
 	public String getListaUsuarios(Model modelo, HttpSession session, UsuarioLoginForm usuarioLoginForm) {
 		try {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
+				System.out.println("login desde lista usuarios");
 				login(usuarioLoginForm, session);
 			}
 		} catch (Exception e) {
+			System.out.println("login desde lista usuarios");
 			return login(usuarioLoginForm, session);
 
 		}
@@ -114,6 +116,7 @@ public class UsuarioControlador {
 		try {
 			session.getAttribute("codigo").equals(null);
 		} catch (Exception e) {
+			System.out.println("login desde inicio usuarios");
 			return login(usuarioLoginForm, session);
 
 		}
@@ -124,6 +127,7 @@ public class UsuarioControlador {
 	public String inicioAdmin(HttpSession session, UsuarioLoginForm usuarioLoginForm) {
 		try {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
+				System.out.println("login desde inicio admin");
 				return login(usuarioLoginForm, session);
 			}
 		} catch (Exception e) {

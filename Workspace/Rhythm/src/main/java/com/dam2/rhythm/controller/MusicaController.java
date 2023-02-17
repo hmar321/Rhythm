@@ -53,10 +53,12 @@ public class MusicaController {
 	public String crearMusica(Model modelo, HttpSession session,MusicaForm musicaForm,UsuarioLoginForm usuarioLoginForm) {
 		try {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
+				System.out.println("login desde crear musica");
 				return UsuarioControlador.login(usuarioLoginForm, session);
 			}
 			
 		} catch (Exception e) {
+			System.out.println("login desde crear musica");
 			return UsuarioControlador.login(usuarioLoginForm, session);
 
 		}

@@ -16,21 +16,23 @@
 			class="card bg-light w-50 d-flex align-items-center justify-content-center">
 			<article class="card-body mx-auto " style="max-width: 400px;">
 				<h4 class="card-title mt-3 text-center">Añadir lista</h4>
-				<form action="#" th:action="@{/postcrearmusica}"
+				<form action="#" th:action="@{/postcrearlista}"
 					th:object="${listaForm}" method="post">
 					<div class="text-danger" th:text=${error}></div>
 					<br>
+
 					<div class="form-group input-group">
 						<input class="form-control" placeholder="Titulo lista" type="text"
 							th:field="*{titulo}">
-
 					</div>
-					<input type="hidden" th:field="*{usuario}" th:value="${listasUsuario.id}"/>
 					<div class="text-danger" th:if="${#fields.hasErrors('titulo')}"
 						th:errors="*{titulo}">Título Error</div>
-						<br>
-						<button type="submit" class="btn btn-dark btn-block">
-							Añadir</button>
+					<div>
+						<input type="hidden" th:attr="name='usuario'" th:value="${usuario.id}"/>
+					</div>
+					<br>
+					<button type="submit" class="btn btn-dark btn-block">
+						Añadir</button>
 				</form>
 			</article>
 		</div>

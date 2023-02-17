@@ -18,12 +18,14 @@
 				<tr>
 					<th>Titulo</th>
 					<th>Músicas</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="lista:${listaListas}">
 					<td th:text="${lista.titulo}"></td>
 					<td th:text="${lista.numMusicas}"></td>
+					<td><a href="/" class="btn btn-primary btn btn-outline-light">Ver lista</a></td>
 				</tr>
 			</tbody>
 			
