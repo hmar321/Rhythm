@@ -29,13 +29,19 @@
 					<div class="form-group input-group">
 						<input name="" class="form-control" placeholder="Email"
 							type="email" th:field="*{email}">
+							
+							
 					</div>
+					<div class="text-danger" th:if="${#fields.hasErrors('email')}"
+						th:errors="*{email}">Email Error</div>
 					<br>
 					<div class="form-group input-group">
 						
 						<input class="form-control" placeholder="Contraseña"
 							type="password" th:field="*{password}">
 					</div>
+					<div class="text-danger" th:if="${#fields.hasErrors('password')}"
+						th:errors="*{password}">Contraseña Error</div>
 					<div class="form-group">
 					<br>
 						<button type="submit" class="btn btn-dark btn-block">

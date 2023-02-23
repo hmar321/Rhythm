@@ -25,6 +25,10 @@ public class Artista {
 		this.nick = nick;
 		this.integrantes = new ArrayList<>();
 	}
+	public Artista(String nick,List<Integrante> integrantes) {
+		this.nick = nick;
+		this.integrantes = new ArrayList<>(integrantes);
+	}
 
 	public Integer getId() {
 		return id;

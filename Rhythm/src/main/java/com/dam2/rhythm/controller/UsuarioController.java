@@ -37,6 +37,7 @@ public class UsuarioController {
 	@GetMapping("/")
 	public static String login(UsuarioLoginForm usuarioLoginForm, HttpServletRequest request) {
 		HttpSession session = request.getSession();
+		session.removeAttribute("error");
 		return "/index";
 	}
 
@@ -45,7 +46,6 @@ public class UsuarioController {
 			HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		if (bindingResult.hasErrors()) {
-			session.setAttribute("error", "Usuario/email incorrectos.");
 			return "/index";
 		}
 		Usuario usuario = usuarRepos.findByEmail(usuarioLoginForm.getEmail());

@@ -2,12 +2,14 @@ package com.dam2.rhythm.form;
 
 import com.dam2.rhythm.model.Usuario;
 
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 
 public class ListaForm {
 	@NotNull
 	private Usuario usuario;
 	@NotNull
+	@NotEmpty
 	private String titulo;
 	public Usuario getUsuario() {
 		return usuario;
