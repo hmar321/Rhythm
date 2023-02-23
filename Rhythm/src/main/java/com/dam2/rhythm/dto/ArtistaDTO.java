@@ -1,32 +1,43 @@
 package com.dam2.rhythm.dto;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.dam2.rhythm.model.Artista;
 import com.dam2.rhythm.model.Integrante;
 
-public class ArtistaDTO {
+public class ArtistaDTO implements Serializable {
 	private String nick;
-	private List<Integrante> integrantes;
-	
-	public ArtistaDTO(String nick, List<Integrante> integrantes) {
+	private List<IntegranteDTO> integrantes;
+
+	public ArtistaDTO(String nick, List<IntegranteDTO> integrantes) {
 		this.nick = nick;
 		this.integrantes = integrantes;
 	}
+
 	public String getNick() {
 		return nick;
 	}
+
 	public void setNick(String nick) {
 		this.nick = nick;
 	}
-	public List<Integrante> getIntegrantes() {
+
+	public List<IntegranteDTO> getIntegrantes() {
 		return integrantes;
 	}
-	public void setIntegrantes(List<Integrante> integrantes) {
+
+	public void setIntegrantes(List<IntegranteDTO> integrantes) {
 		this.integrantes = integrantes;
 	}
+
 	public Artista mapingToArtista() {
-		return new Artista(nick, integrantes);
+		List<Integrante> aux = new ArrayList<>();
+		for (IntegranteDTO integranteDTO : integrantes) {
+			aux.add(integranteDTO.mapingToIntegrante());
+		}
+		return new Artista(nick, aux);
 	}
-	
+
 }

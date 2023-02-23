@@ -44,6 +44,20 @@ public class MusicaController {
 		modelo.addAttribute("listaMusicas", listaMusicas);
 		return "/listamusicas";
 	}
+	@GetMapping(path = "/listamusicasadmin")
+	public String listaMusicasAdmin(Model modelo, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		try {
+			if (!session.getAttribute("codigo").equals("ADMIN")) {
+				return "/cerrarsesion";
+			}
+		} catch (Exception e) {
+			return "/avisosession";
+		}
+		List<Musica> listaMusicas = Utilidades.listMusicas(musicRespos.findAll());
+		modelo.addAttribute("listaMusicas", listaMusicas);
+		return "/listamusicasadmin";
+	}
 
 	@GetMapping(path = "/crearmusica")
 	public String crearMusica(Model modelo, MusicaForm musicaForm, UsuarioLoginForm usuarioLoginForm,

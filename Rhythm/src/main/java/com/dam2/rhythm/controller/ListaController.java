@@ -105,9 +105,19 @@ public class ListaController {
 		modelo.addAttribute("lista", lista);
 		return "/aniadirmusica";
 	}
-	@GetMapping(path = "/asdasdasd")//para volver del form de añadir música a la lista de reproducción
-	public String listaAniadirMusica() {
-		return "/";
+	@GetMapping(path = "/volverlistareproduccion")//para volver del form de añadir música a la lista de reproducción
+	public String aniadirMusicaALista(Model modelo,HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		try {
+			session.getAttribute("codigo").equals("x");
+		} catch (Exception e) {
+			return "/avisosession";
+		}
+		Integer id=Integer.parseInt(session.getAttribute("listaId").toString());
+		Lista listaActual=listaRepos.findById(id).get();
+		List<Musica> listaMusicas = Utilidades.listMusicas(listaActual.getMusicas());
+		modelo.addAttribute("listaMusicas", listaMusicas);
+		return "/listareproduccionmusicas";
 	}
 	
 	@PostMapping(path = "/postlistaaniadirmusica")

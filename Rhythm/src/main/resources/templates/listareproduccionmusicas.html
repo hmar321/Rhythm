@@ -16,14 +16,12 @@
 		<table class="table table-secondary table-striped">
 			<thead>
 				<tr>
-					<th>Id</th>
 					<th>Titulo</th>
 					<th>Estreno</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="musica:${listaMusicas}">
-					<td th:text="${musica.id}"></td>
 					<td th:text="${musica.titulo}"></td>
 					<td th:text="${musica.estreno}"></td>
 				</tr>
