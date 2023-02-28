@@ -1,0 +1,105 @@
+{
+  "artista": [
+    {
+      "nick": "Bee Gees",
+      "integrantes": {
+        "integrante": [
+          { "nick": "Barry", "nombre": "Barry", "apellido": "Gibb" },
+          { "nick": "Maurice", "nombre": "Maurice", "apellido": "Gibb" },
+          { "nick": "Robin", "nombre": "Robin", "apellido": "Gibb" },
+          { "nick": "Vince", "nombre": "Vince", "apellido": "Melouney" },
+          { "nick": "Colin", "nombre": "Colin", "apellido": "Petersen" },
+          { "nick": "Geoff", "nombre": "Geoff", "apellido": "Bridgford" }
+        ]
+      }
+    },
+    {
+      "nick": "BTS",
+      "integrantes": {
+        "integrante": [
+          { "nick": "Jin", "nombre": "Kim", "apellido": "Seok-jin" },
+          { "nick": "Suga", "nombre": "Min", "apellido": "Yoon-gi" },
+          { "nick": "J-Hope", "nombre": "Jung", "apellido": "Ho-seok" },
+          { "nick": "RM", "nombre": "Kim", "apellido": "Nam-joon" },
+          { "nick": "Jimin", "nombre": "Park", "apellido": "Ji-min" },
+          { "nick": "V", "nombre": "Kim", "apellido": "Tae-hyung" },
+          { "nick": "Jungkook", "nombre": "Jeon", "apellido": "Jung-kook" }
+        ]
+      }
+    },
+    {
+      "nick": "Earth, Wind \u0026 Fire",
+      "integrantes": {
+        "integrante": [
+          { "nick": "Philip", "nombre": "Philip", "apellido": "Bailey" },
+          { "nick": "Verdine", "nombre": "Verdine", "apellido": "White" },
+          { "nick": "Ralph", "nombre": "Ralph", "apellido": "Johnson" },
+          { "nick": "David", "nombre": "David", "apellido": "Whitworth" },
+          { "nick": "Philip", "nombre": "Philip", "apellido": "Bailey Jr" },
+          { "nick": "Myron", "nombre": "Myron", "apellido": "McKinley" },
+          { "nick": "John", "nombre": "John", "apellido": "Paris" },
+          { "nick": "Morris", "nombre": "Morris", "apellido": "O\u0027Connor" },
+          { "nick": "Serg", "nombre": "Serg", "apellido": "Dimitrijevic" },
+          { "nick": "Gary", "nombre": "Gary", "apellido": "Bias" },
+          { "nick": "Reggie", "nombre": "Reggie", "apellido": "Young" },
+          { "nick": "Bobby", "nombre": "Bobby", "apellido": "Burns Jr" }
+        ]
+      }
+    },
+    {
+      "nick": "GRIS",
+      "integrantes": {
+        "integrante": [
+          { "nick": "GRIS", "nombre": "Nomada Studio", "apellido": "game" }
+        ]
+      }
+    },
+    {
+      "nick": "Metal Gear Rising: Revengeance",
+      "integrantes": {
+        "integrante": [
+          { "nick": "Metal Gear", "nombre": "Konami", "apellido": "game" }
+        ]
+      }
+    },
+    {
+      "nick": "Michael Jackson",
+      "integrantes": {
+        "integrante": [
+          {
+            "nick": "Michael Jackson",
+            "nombre": "Michael Joseph",
+            "apellido": "Jackson"
+          }
+        ]
+      }
+    },
+    {
+      "nick": "Queen",
+      "integrantes": {
+        "integrante": [
+          {
+            "nick": "Freddie Mercury",
+            "nombre": "Freddie",
+            "apellido": "Mercury"
+          },
+          { "nick": "Brian", "nombre": "Brian", "apellido": "May" },
+          { "nick": "Roger", "nombre": "Roger", "apellido": "Taylor" },
+          { "nick": "John", "nombre": "John", "apellido": "Deacon" }
+        ]
+      }
+    },
+    {
+      "nick": "The Weeknd",
+      "integrantes": {
+        "integrante": [
+          {
+            "nick": "The Weeknd",
+            "nombre": "Abel Makkonen",
+            "apellido": "Tesfaye"
+          }
+        ]
+      }
+    }
+  ]
+}

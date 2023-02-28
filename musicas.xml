@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<musicas>
+    <musica>
+        <titulo>Stayin' Alive</titulo>
+        <artistaNick>Bee Gees</artistaNick>
+        <estreno>1977-12-31T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/fNFzfwLM72c</embed>
+        <generos>
+            <genero>
+                <nombre>Disco</nombre>
+                <descripcion>Música bailable con ritmos pegajosos y énfasis en la sección de vientos.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Gris, Pt.1</titulo>
+        <artistaNick>GRIS</artistaNick>
+        <estreno>2018-12-13T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/c_2gHmpZmzU</embed>
+        <generos>
+            <genero>
+                <nombre>Classical</nombre>
+                <descripcion>Música orquestal tradicional, a menudo interpretada por una orquesta sinfónica.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Ambient</nombre>
+                <descripcion>Género musical tranquilo y relajante con sonidos atmosféricos y texturas.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>I Want to Break Free</titulo>
+        <artistaNick>Queen</artistaNick>
+        <estreno>1984-04-02T00:00:00+02:00</estreno>
+        <embed>https://www.youtube.com/embed/f4Mc-NYPHaQ</embed>
+        <generos>
+            <genero>
+                <nombre>Rock</nombre>
+                <descripcion>Música de guitarras con energía y actitud rebelde.</descripcion>
+            </genero>
+            <genero>
+                <nombre>New wave</nombre>
+                <descripcion>Género musical experimental con sintetizadores y efectos de guitarra.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Gris, Pt.2</titulo>
+        <artistaNick>GRIS</artistaNick>
+        <estreno>2018-12-13T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/InQk79Ll9u4</embed>
+        <generos>
+            <genero>
+                <nombre>Classical</nombre>
+                <descripcion>Música orquestal tradicional, a menudo interpretada por una orquesta sinfónica.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Ambient</nombre>
+                <descripcion>Género musical tranquilo y relajante con sonidos atmosféricos y texturas.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Bohemian Rhapsody</titulo>
+        <artistaNick>Queen</artistaNick>
+        <estreno>1975-10-31T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/fJ9rUzIMcZQ</embed>
+        <generos>
+            <genero>
+                <nombre>Progressive-rock</nombre>
+                <descripcion>Género musical experimental y progresivo con estructuras de canciones complejas y cambios de ritmo inesperados.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Opera</nombre>
+                <descripcion>Música clásica con voces poderosas y dramáticas que cuentan historias.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Hard-rock</nombre>
+                <descripcion>Género musical pesado y poderoso con guitarras y batería enérgicas.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Heavy-metal</nombre>
+                <descripcion>Género musical agresivo con guitarras distorsionadas y ritmos fuertes.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>In Your Hands</titulo>
+        <artistaNick>GRIS</artistaNick>
+        <estreno>2018-12-13T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/FLlenOmOWxI</embed>
+        <generos>
+            <genero>
+                <nombre>Classical</nombre>
+                <descripcion>Música orquestal tradicional, a menudo interpretada por una orquesta sinfónica.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Ambient</nombre>
+                <descripcion>Género musical tranquilo y relajante con sonidos atmosféricos y texturas.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Another One Bites the Dust</titulo>
+        <artistaNick>Queen</artistaNick>
+        <estreno>1980-09-13T00:00:00+02:00</estreno>
+        <embed>https://www.youtube.com/embed/rY0WxgSXdEE</embed>
+        <generos>
+            <genero>
+                <nombre>Rock</nombre>
+                <descripcion>Música de guitarras con energía y actitud rebelde.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Funk</nombre>
+                <descripcion>Ritmos de bajo y batería destacados, con énfasis en la melodía.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>It has to be this way</titulo>
+        <artistaNick>Metal Gear Rising: Revengeance</artistaNick>
+        <estreno>2013-02-19T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/N72U-NFu44k</embed>
+        <generos>
+            <genero>
+                <nombre>Metal</nombre>
+                <descripcion>Género musical pesado y enérgico con guitarras distorsionadas y ritmos fuertes.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Electronic</nombre>
+                <descripcion>Género musical basado en sintetizadores y secuenciadores.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>The only thing i know for real</titulo>
+        <artistaNick>Metal Gear Rising: Revengeance</artistaNick>
+        <estreno>2013-02-19T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/CXRxRTW6nXg</embed>
+        <generos>
+            <genero>
+                <nombre>Metal</nombre>
+                <descripcion>Género musical pesado y enérgico con guitarras distorsionadas y ritmos fuertes.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Electronic</nombre>
+                <descripcion>Género musical basado en sintetizadores y secuenciadores.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Rules of nature</titulo>
+        <artistaNick>Metal Gear Rising: Revengeance</artistaNick>
+        <estreno>2013-02-19T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/jOpzP33_USs</embed>
+        <generos>
+            <genero>
+                <nombre>Metal</nombre>
+                <descripcion>Género musical pesado y enérgico con guitarras distorsionadas y ritmos fuertes.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Electronic</nombre>
+                <descripcion>Género musical basado en sintetizadores y secuenciadores.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Don't Break My Heart</titulo>
+        <artistaNick>The Weeknd</artistaNick>
+        <estreno>2022-01-22T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/OeqV6oyNHc0</embed>
+        <generos>
+            <genero>
+                <nombre>R&amp;B</nombre>
+                <descripcion>Ritmo y Blues con influencias de Gospel y Jazz.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Soul</nombre>
+                <descripcion>Género musical emotivo y profundo que transmite sentimientos y experiencias personales.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>After Hours</titulo>
+        <artistaNick>The Weeknd</artistaNick>
+        <estreno>2020-02-20T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/ygTZZpVkmKg</embed>
+        <generos>
+            <genero>
+                <nombre>Dark-pop</nombre>
+                <descripcion>Género musical melancólico y emotivo, a menudo con letras tristes.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Synth-pop</nombre>
+                <descripcion>Género musical electrónico con sintetizadores y letras emotivas.</descripcion>
+            </genero>
+            <genero>
+                <nombre>R&amp;B</nombre>
+                <descripcion>Ritmo y Blues con influencias de Gospel y Jazz.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Is There Someone Else?</titulo>
+        <artistaNick>The Weeknd</artistaNick>
+        <estreno>2022-01-03T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/1XqIWr_WqM4</embed>
+        <generos>
+            <genero>
+                <nombre>R&amp;B</nombre>
+                <descripcion>Ritmo y Blues con influencias de Gospel y Jazz.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Soul</nombre>
+                <descripcion>Género musical emotivo y profundo que transmite sentimientos y experiencias personales.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Let's Groove</titulo>
+        <artistaNick>Earth, Wind &amp; Fire</artistaNick>
+        <estreno>1981-08-24T00:00:00+02:00</estreno>
+        <embed>https://www.youtube.com/embed/Lrle0x_DHBM</embed>
+        <generos>
+            <genero>
+                <nombre>Funk</nombre>
+                <descripcion>Ritmos de bajo y batería destacados, con énfasis en la melodía.</descripcion>
+            </genero>
+            <genero>
+                <nombre>R&amp;B</nombre>
+                <descripcion>Ritmo y Blues con influencias de Gospel y Jazz.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Boogie Wonderland</titulo>
+        <artistaNick>Earth, Wind &amp; Fire</artistaNick>
+        <estreno>1979-04-06T00:00:00+02:00</estreno>
+        <embed>https://www.youtube.com/embed/god7hAPv8f0</embed>
+        <generos>
+            <genero>
+                <nombre>Funk</nombre>
+                <descripcion>Ritmos de bajo y batería destacados, con énfasis en la melodía.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Disco</nombre>
+                <descripcion>Música bailable con ritmos pegajosos y énfasis en la sección de vientos.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>September</titulo>
+        <artistaNick>Earth, Wind &amp; Fire</artistaNick>
+        <estreno>1978-09-22T00:00:00+02:00</estreno>
+        <embed>https://www.youtube.com/embed/Gs069dndIYk</embed>
+        <generos>
+            <genero>
+                <nombre>Funk</nombre>
+                <descripcion>Ritmos de bajo y batería destacados, con énfasis en la melodía.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Soul</nombre>
+                <descripcion>Género musical emotivo y profundo que transmite sentimientos y experiencias personales.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Remember the Time</titulo>
+        <artistaNick>Michael Jackson</artistaNick>
+        <estreno>1992-01-14T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/LeiFF0gvqcc</embed>
+        <generos>
+            <genero>
+                <nombre>Funk</nombre>
+                <descripcion>Ritmos de bajo y batería destacados, con énfasis en la melodía.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Pop</nombre>
+                <descripcion>Género musical comercial y pegajoso con una gran base de fans.</descripcion>
+            </genero>
+            <genero>
+                <nombre>R&amp;B</nombre>
+                <descripcion>Ritmo y Blues con influencias de Gospel y Jazz.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Thriller</titulo>
+        <artistaNick>Michael Jackson</artistaNick>
+        <estreno>1982-11-29T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/sOnqjkJTMaA</embed>
+        <generos>
+            <genero>
+                <nombre>R&amp;B</nombre>
+                <descripcion>Ritmo y Blues con influencias de Gospel y Jazz.</descripcion>
+            </genero>
+            <genero>
+                <nombre>New Jack Swing</nombre>
+                <descripcion>Fusión de R&amp;B, Hip-hop y Funk con un ritmo pegajoso.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Not Today</titulo>
+        <artistaNick>BTS</artistaNick>
+        <estreno>2017-02-19T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/9DwzBICPhdM</embed>
+        <generos>
+            <genero>
+                <nombre>Hip-hop</nombre>
+                <descripcion>Género musical basado en ritmos y rimas habladas con una base electrónica.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Dance-pop</nombre>
+                <descripcion>Música electrónica bailable con letras pegajosas y melodías fáciles de recordar.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>DOPE</titulo>
+        <artistaNick>BTS</artistaNick>
+        <estreno>2015-06-22T00:00:00+02:00</estreno>
+        <embed>https://www.youtube.com/embed/H8lYMWZD5P8</embed>
+        <generos>
+            <genero>
+                <nombre>Hip-hop</nombre>
+                <descripcion>Género musical basado en ritmos y rimas habladas con una base electrónica.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Dance-pop</nombre>
+                <descripcion>Música electrónica bailable con letras pegajosas y melodías fáciles de recordar.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Night Fever</titulo>
+        <artistaNick>Bee Gees</artistaNick>
+        <estreno>1977-12-31T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/SkypZuY6ZvA</embed>
+        <generos>
+            <genero>
+                <nombre>Disco</nombre>
+                <descripcion>Música bailable con ritmos pegajosos y énfasis en la sección de vientos.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>Slave to the Rhythm</titulo>
+        <artistaNick>Michael Jackson</artistaNick>
+        <estreno>2014-05-13T00:00:00+02:00</estreno>
+        <embed>https://www.youtube.com/embed/MuTgX_A52Eo</embed>
+        <generos>
+            <genero>
+                <nombre>Funk</nombre>
+                <descripcion>Ritmos de bajo y batería destacados, con énfasis en la melodía.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Pop</nombre>
+                <descripcion>Género musical comercial y pegajoso con una gran base de fans.</descripcion>
+            </genero>
+            <genero>
+                <nombre>R&amp;B</nombre>
+                <descripcion>Ritmo y Blues con influencias de Gospel y Jazz.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>FIRE</titulo>
+        <artistaNick>BTS</artistaNick>
+        <estreno>2016-05-02T00:00:00+02:00</estreno>
+        <embed>https://www.youtube.com/embed/4ujQOR2DMFM</embed>
+        <generos>
+            <genero>
+                <nombre>Hip-hop</nombre>
+                <descripcion>Género musical basado en ritmos y rimas habladas con una base electrónica.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Dance-pop</nombre>
+                <descripcion>Música electrónica bailable con letras pegajosas y melodías fáciles de recordar.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+    <musica>
+        <titulo>How Deep Is Your Love</titulo>
+        <artistaNick>Bee Gees</artistaNick>
+        <estreno>1977-12-31T00:00:00+01:00</estreno>
+        <embed>https://www.youtube.com/embed/XpqqjU7u5Yc</embed>
+        <generos>
+            <genero>
+                <nombre>Pop</nombre>
+                <descripcion>Género musical comercial y pegajoso con una gran base de fans.</descripcion>
+            </genero>
+            <genero>
+                <nombre>Soft-rock</nombre>
+                <descripcion>Género musical suave y fácil de escuchar, a menudo con baladas románticas.</descripcion>
+            </genero>
+        </generos>
+    </musica>
+</musicas>

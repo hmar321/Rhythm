@@ -28,13 +28,13 @@
 					<td><form action="#" th:action="@{/post_lista_musicas}"
 					th:object="${listaMusicasForm}" method="post">
 					<input type="hidden" th:attr="name='lista'" th:value="${lista.id}"/>
-					<button type="submit" class="btn btn-success btn-block">
+					<button type="submit" class="btn btn-dark">
 							Ver lista</button></form></td>
 				</tr>
 			</tbody>
 			
 		</table>
-		<br> <a href="/lista_crear" class="btn btn-primary btn btn-outline-light">Añadir lista</a>
+		<br> <a href="/lista_crear" class="btn btn-primary">Añadir lista</a>
 		
 	</div>
 

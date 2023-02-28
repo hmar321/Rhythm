@@ -41,9 +41,9 @@
 					<div class="text-danger" th:if="${#fields.hasErrors('artista')}"
 						th:errors="*{artista}">Artista Error</div>
 					<br>
+					<label  for="generos">Selecciona uno o varios géneros:</label>
 					<div class="form-group input-group">
-						<select multiple class="form-select" th:field="*{genero}">
-							<option value="" >Seleccionar generos</option>
+						<select multiple size="7" id="generos" class="form-select" th:field="*{genero}">
 							<option th:each="genero:${listaGeneros}"
 								th:text="${genero.nombre}" th:value="${genero.id}"></option>
 						</select>

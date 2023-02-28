@@ -16,7 +16,7 @@
 		<table class="table table-secondary table-striped">
 			<thead>
 				<tr>
-					<th>Titulo</th>
+					<th>Título</th>
 					<th>Estreno</th>
 					<th></th>
 				</tr>
@@ -25,12 +25,12 @@
 				<tr th:each="musica:${listaMusicas}">
 					<td th:text="${musica.titulo}"></td>
 					<td th:text="${musica.estreno}"></td>
-					<td><a class="btn btn-success" th:href="@{{embed}(embed=${musica.embed})}">Escuchar</a></td>
+					<td><a class="btn btn-dark" th:href="@{{embed}(embed=${musica.embed})}">Escuchar</a></td>
 				</tr>
 			</tbody>
 		</table>
-		<br> <a href="/lista_add_musica" class="btn btn-success btn btn-outline-light">Añadir música</a>
-		<a href="/listas" class="btn btn-success btn-outline-light">Volver</a>
+		<br> <a href="/lista_add_musica" class="btn btn-dark">Añadir música</a>
+		<a href="/listas" class="btn btn-dark">Volver</a>
 	</div>
 
 </body>
