@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Fichero musicas</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+	<div class="container d-flex align-items-center justify-content-center">
+		<div
+			class="card bg-light w-75 d-flex align-items-center justify-content-center">
+			<article class="card-body mx-auto " style="max-width: 700px;min-height: 400px;">
+				<h1 class="card-title mt-3 text-center">Exportar</h1>
+				<h5 class="card-title mt-3 text-center">Artistas</h5>
+				<a href="/artistas.xml" download><img src="filexml.png"
+					alt="xml" width="60"></a> <a href="/artistas.json" download><img
+					src="filejson.png" alt="json" width="60"></a>
+				<h5 class="card-title mt-3 text-center">Músicas</h5>
+				<a href="/musicas.xml" download><img src="filexml.png" alt="xml"
+					width="60"></a> <a href="/musicas.json" download><img
+					src="filejson.png" alt="json" width="60"></a>
+					<br>
+			</article>
+		</div>
+
+	</div>
+
+</body>
+
+</html>
