@@ -9,6 +9,7 @@
 		<version>3.0.2</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>com.dam2</groupId>
 	<artifactId>Rhythm</artifactId>
 	<version>0.0.1-SNAPSHOT</version>

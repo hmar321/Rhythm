@@ -26,53 +26,7 @@ public class UsuarioController {
 	private RolRepositorio rolRepos;
 	@Autowired
 	private UsuarioRepositorio usuarRepos;
-	/*
-	@Value("${spring.security.oauth2.client.registration.google.client-id}")
-    private String googleClientId;
-	
-	@GetMapping("/login_google")
-    public String getLoginPage(HttpServletRequest request) {
-        String redirectUrl = UriComponentsBuilder.fromHttpUrl(
-                request.getRequestURL().toString())
-                .path("/oauth2/callback/google")
-                .build().toUriString();
 
-        OAuth2AuthorizationRequest authorizationRequest =
-                OAuth2AuthorizationRequest
-                        .authorizationCode()
-                        .clientId(googleClientId)
-                        .redirectUri(redirectUrl)
-                        .scope("profile", "email")
-                        .state(UUID.randomUUID().toString())
-                        .build();
-
-        request.getSession().setAttribute(
-                OAuth2AuthorizationRequest.class.getName(),
-                authorizationRequest);
-
-        return "redirect:" +
-                "https://accounts.google.com/o/oauth2/v2/auth?" +
-                "client_id=" + googleClientId +
-                "&redirect_uri=" + redirectUrl +
-                "&response_type=code" +
-                "&scope=profile email" +
-                "&state=" + authorizationRequest.getState();
-    }
-    
-    @GetMapping("/oauth2/callback/google")
-    public String handleGoogleCallback(OAuth2AuthorizedClientService authorizedClientService,
-            OAuth2AuthenticationToken authenticationToken,
-            HttpServletRequest request,
-            HttpServletResponse response) throws IOException {
-
-        OAuth2AuthorizedClient client = authorizedClientService
-                .loadAuthorizedClient(
-                        authenticationToken.getAuthorizedClientRegistrationId(),
-                        authenticationToken.getName());
-
-        return "redirect:/inicio";
-    }
-	*/
 	@GetMapping(path = "/cerrar_sesion")
 	public String cerrarSession(HttpServletRequest request) {
 		HttpSession session = request.getSession();

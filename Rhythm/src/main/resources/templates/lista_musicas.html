@@ -19,6 +19,7 @@
 					<th>Título</th>
 					<th>Estreno</th>
 					<th></th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -26,6 +27,11 @@
 					<td th:text="${musica.titulo}"></td>
 					<td th:text="${musica.estreno}"></td>
 					<td><a class="btn btn-dark" th:href="@{{embed}(embed=${musica.embed})}">Escuchar</a></td>
+					<th><form action="#" th:action="@{/post_lista_musicas_remove}"
+					th:object="${musicaHiddenForm}" method="post">
+					<input type="hidden" th:attr="name='musica'" th:value="${musica.id}"/>
+					<button type="submit" class="btn btn-danger">
+							Quitar</button></form></th>
 				</tr>
 			</tbody>
 		</table>

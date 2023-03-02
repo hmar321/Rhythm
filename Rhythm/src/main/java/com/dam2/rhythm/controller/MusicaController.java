@@ -26,8 +26,10 @@ import com.dam2.rhythm.dto.MusicasDTO;
 import com.dam2.rhythm.files.JSONRhythmManager;
 import com.dam2.rhythm.files.XMLRhythmManager;
 import com.dam2.rhythm.form.MusicaForm;
+import com.dam2.rhythm.form.MusicaHiddenForm;
 import com.dam2.rhythm.model.Artista;
 import com.dam2.rhythm.model.Genero;
+import com.dam2.rhythm.model.Lista;
 import com.dam2.rhythm.model.Musica;
 import com.dam2.rhythm.repository.ArtistaRepositorio;
 import com.dam2.rhythm.repository.GeneroRepositorio;
@@ -217,5 +219,45 @@ public class MusicaController {
 			return UsuarioController.importar(request);
 		}
 	}
+	@PostMapping(path = "post_musica_update")
+	public String listaMusicasQuitar(MusicaHiddenForm musicaHiddenForm, MusicaForm musicaForm, Model modelo, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		try {
+			if (!session.getAttribute("codigo").equals("ADMIN")) {
+				System.out.println("login desde crear musica");
+				return "redirect:/cerrar_sesion";
+			}
 
+		} catch (Exception e) {
+			return "/aviso_session";
+
+		}
+		Musica musica=musicaHiddenForm.getMusica();
+		musicaForm.pasarDatos(musica);
+		List<Artista> listaArtistas = Utilidades.listArtistas(artisRepos.findAll());
+		List<Genero> listaGeneros = Utilidades.listGeneros(generRepos.findAll());
+		modelo.addAttribute("listaArtistas", listaArtistas);
+		modelo.addAttribute("listaGeneros", listaGeneros);
+		modelo.addAttribute("musicaForm",musicaForm);
+		modelo.addAttribute(musicaHiddenForm.getMusica());
+		session.setAttribute("musicaId", musica.getId());
+		return "/musica_update";
+	}
+	
+	@PostMapping(path = "/post_musica_updating")
+	public String checkMusicaUpdateInfo(@Valid MusicaForm musicaForm, BindingResult bindingResult, Model modelo,
+			HttpServletRequest request) throws ParseException {
+		HttpSession session = request.getSession();
+		if (bindingResult.hasErrors()) {
+			System.out.println(bindingResult.getAllErrors());
+			return musicaCrear(musicaForm, modelo, request);
+		}
+		int id=Integer.parseInt(session.getAttribute("musicaId").toString());
+		Musica musicaActual = new Musica(musicaForm.getTitulo(), musicaForm.getArtista(), musicaForm.getEstreno(),
+				musicaForm.getEmbed());
+		musicaActual.setId(id);
+		musicaActual.setGeneros(Arrays.asList(musicaForm.getGenero()));
+		musicRespos.save(musicaActual);
+		return "redirect:/musicas_admin";
+	}
 }

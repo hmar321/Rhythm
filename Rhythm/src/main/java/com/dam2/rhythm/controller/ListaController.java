@@ -1,9 +1,7 @@
 package com.dam2.rhythm.controller;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,8 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.dam2.rhythm.form.ListaForm;
-import com.dam2.rhythm.form.ListaMusicasForm;
 import com.dam2.rhythm.form.ListaMusicaForm;
+import com.dam2.rhythm.form.ListaMusicasForm;
+import com.dam2.rhythm.form.MusicaHiddenForm;
 import com.dam2.rhythm.model.Lista;
 import com.dam2.rhythm.model.Musica;
 import com.dam2.rhythm.model.Usuario;
@@ -143,6 +142,25 @@ public class ListaController {
 		Integer id = Integer.parseInt(session.getAttribute("listaId").toString());
 		Lista listaActual = listaRepos.findById(id).get();
 		List<Musica> listaMusicas = Utilidades.listMusicas(listaActual.getMusicas());
+		modelo.addAttribute("listaMusicas", listaMusicas);
+		return "/lista_musicas";
+	}
+	
+	@PostMapping(path = "/post_lista_musicas_remove")
+	public String listaMusicasQuitar(MusicaHiddenForm musicaRemoveForm, Model modelo, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		try {
+			session.getAttribute("codigo").equals("x");
+		} catch (Exception e) {
+			return "/aviso_session";
+		}
+		Integer id = Integer.parseInt(session.getAttribute("listaId").toString());
+		Lista listaActual = listaRepos.findById(id).get();
+		List<Musica> listaMusicas = Utilidades.listMusicas(listaActual.getMusicas());
+		listaMusicas.remove(musicaRemoveForm.getMusica());
+		musicaRemoveForm.getMusica().getListas().remove(listaActual);
+		musicRepos.save(musicaRemoveForm.getMusica());
+		listaRepos.save(listaActual);
 		modelo.addAttribute("listaMusicas", listaMusicas);
 		return "/lista_musicas";
 	}

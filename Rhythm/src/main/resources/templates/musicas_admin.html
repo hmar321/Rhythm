@@ -19,6 +19,7 @@
 					<th>Id</th>
 					<th>Titulo</th>
 					<th>Estreno</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -26,6 +27,11 @@
 					<td th:text="${musica.id}"></td>
 					<td th:text="${musica.titulo}"></td>
 					<td th:text="${musica.estreno}"></td>
+					<td><form action="#" th:action="@{/post_musica_update}"
+					th:object="${musicaHiddenForm}" method="post">
+					<input type="hidden" th:attr="name='musica'" th:value="${musica.id}"/>
+					<button type="submit" class="btn btn-success">
+							Editar</button></form></td>
 				</tr>
 			</tbody>
 		</table>
