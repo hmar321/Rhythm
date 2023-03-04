@@ -45,7 +45,6 @@ public class ArtistasController {
 	@GetMapping(path = "/artistas")
 	public String artistas(Model modelo, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		System.out.println("artistas listado");
 		try {
 			session.getAttribute("codigo").equals("x");
 		} catch (Exception e) {
@@ -61,7 +60,6 @@ public class ArtistasController {
 		HttpSession session = request.getSession();
 		try {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
-				System.out.println("login desde crear musica");
 				return "redirect:/cerrar_sesion";
 			}
 
@@ -72,7 +70,7 @@ public class ArtistasController {
 		try {
 			List<Integrante> nuevosIntegrantes = new ArrayList<>();
 			int numArtistas = 0;
-			int numIntegrantes =0;
+			int numIntegrantes = 0;
 			InputStream inputStream = file.getInputStream();
 			String filename = StringUtils.getFilename(file.getOriginalFilename());
 			String extension = StringUtils.getFilenameExtension(filename);
@@ -91,18 +89,23 @@ public class ArtistasController {
 			for (ArtistaDTO artistaDTO : artistas.getArtistas()) {
 				if (artisRepos.findByNick(artistaDTO.getNick()) == null) {
 					artisRepos.save(new Artista(artistaDTO.getNick()));
-					numArtistas ++;
-					for (IntegranteDTO integranteDTO : artistaDTO.getIntegrantesDTO().getList()) {
+					numArtistas++;
+				}
+				Artista artista = artisRepos.findByNick(artistaDTO.getNick());
+				for (IntegranteDTO integranteDTO : artistaDTO.getIntegrantesDTO().getList()) {
+					if (integRepos.findByArtistaAndNombreAndApellido(artista, integranteDTO.getNombre(),
+							integranteDTO.getApellido()) == null) {
 						nuevosIntegrantes.add(new Integrante(integranteDTO.getNick(), integranteDTO.getNombre(),
-								integranteDTO.getApellido(), artisRepos.findByNick(artistaDTO.getNick())));
+								integranteDTO.getApellido(), artista));
 					}
 				}
+
 			}
 
 			if (!nuevosIntegrantes.isEmpty()) {
 				integRepos.saveAll(nuevosIntegrantes);
 			}
-			
+
 			numIntegrantes = nuevosIntegrantes.size();
 			modelo.addAttribute("mensaje",
 					String.format("Se han guardado %d Artistas y %d Integrantes.", numArtistas, numIntegrantes));
@@ -119,7 +122,6 @@ public class ArtistasController {
 		HttpSession session = request.getSession();
 		try {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
-				System.out.println("login desde crear musica");
 				return null;
 			}
 
@@ -138,7 +140,6 @@ public class ArtistasController {
 		HttpSession session = request.getSession();
 		try {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
-				System.out.println("login desde crear musica");
 				return null;
 			}
 

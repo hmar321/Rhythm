@@ -83,7 +83,6 @@ public class MusicaController {
 		HttpSession session = request.getSession();
 		try {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
-				System.out.println("login desde crear musica");
 				return "redirect:/cerrar_sesion";
 			}
 
@@ -103,7 +102,6 @@ public class MusicaController {
 			HttpServletRequest request) throws ParseException {
 		HttpSession session = request.getSession();
 		if (bindingResult.hasErrors()) {
-			System.out.println(bindingResult.getAllErrors());
 			return musicaCrear(musicaForm, modelo, request);
 		}
 
@@ -212,19 +210,21 @@ public class MusicaController {
 				musicRespos.saveAll(nuevasMusicas);
 			}
 			numMusicas = nuevasMusicas.size();
-			modelo.addAttribute("mensaje", String.format("Se han guardado %d Musicas y %d Generos.", numMusicas, numGeneros));
+			modelo.addAttribute("mensaje",
+					String.format("Se han guardado %d Musicas y %d Generos.", numMusicas, numGeneros));
 			return UsuarioController.importar(request);
 		} catch (Exception e) {
 			modelo.addAttribute("error", "Error al realizar la importación.");
 			return UsuarioController.importar(request);
 		}
 	}
+
 	@PostMapping(path = "post_musica_update")
-	public String listaMusicasQuitar(MusicaHiddenForm musicaHiddenForm, MusicaForm musicaForm, Model modelo, HttpServletRequest request) {
+	public String listaMusicasQuitar(MusicaHiddenForm musicaHiddenForm, MusicaForm musicaForm, Model modelo,
+			HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		try {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
-				System.out.println("login desde crear musica");
 				return "redirect:/cerrar_sesion";
 			}
 
@@ -232,32 +232,52 @@ public class MusicaController {
 			return "/aviso_session";
 
 		}
-		Musica musica=musicaHiddenForm.getMusica();
+		Musica musica = musicaHiddenForm.getMusica();
 		musicaForm.pasarDatos(musica);
 		List<Artista> listaArtistas = Utilidades.listArtistas(artisRepos.findAll());
 		List<Genero> listaGeneros = Utilidades.listGeneros(generRepos.findAll());
 		modelo.addAttribute("listaArtistas", listaArtistas);
 		modelo.addAttribute("listaGeneros", listaGeneros);
-		modelo.addAttribute("musicaForm",musicaForm);
+		modelo.addAttribute("musicaForm", musicaForm);
 		modelo.addAttribute(musicaHiddenForm.getMusica());
 		session.setAttribute("musicaId", musica.getId());
 		return "/musica_update";
 	}
-	
+
 	@PostMapping(path = "/post_musica_updating")
 	public String checkMusicaUpdateInfo(@Valid MusicaForm musicaForm, BindingResult bindingResult, Model modelo,
 			HttpServletRequest request) throws ParseException {
 		HttpSession session = request.getSession();
+		try {
+			if (!session.getAttribute("codigo").equals("ADMIN")) {
+				return "redirect:/cerrar_sesion";
+			}
+
+		} catch (Exception e) {
+			return "/aviso_session";
+
+		}
 		if (bindingResult.hasErrors()) {
-			System.out.println(bindingResult.getAllErrors());
 			return musicaCrear(musicaForm, modelo, request);
 		}
-		int id=Integer.parseInt(session.getAttribute("musicaId").toString());
+		int id = Integer.parseInt(session.getAttribute("musicaId").toString());
 		Musica musicaActual = new Musica(musicaForm.getTitulo(), musicaForm.getArtista(), musicaForm.getEstreno(),
 				musicaForm.getEmbed());
 		musicaActual.setId(id);
 		musicaActual.setGeneros(Arrays.asList(musicaForm.getGenero()));
 		musicRespos.save(musicaActual);
 		return "redirect:/musicas_admin";
+	}
+
+	@GetMapping("/reproductor")
+	public String reproductor(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		try {
+			session.getAttribute("codigo").equals("x");
+		} catch (Exception e) {
+			return "/aviso_session";
+
+		}
+		return "/reproductor";
 	}
 }

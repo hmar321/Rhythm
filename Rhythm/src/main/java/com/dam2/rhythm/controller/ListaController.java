@@ -67,7 +67,6 @@ public class ListaController {
 			HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		if (bindingResult.hasErrors()) {
-			System.out.println(bindingResult.getAllErrors());
 			return listaCrear(listaForm, modelo, request);
 		}
 		Lista nuevaLista = new Lista(listaForm.getUsuario(), listaForm.getTitulo());
@@ -80,7 +79,6 @@ public class ListaController {
 			HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		if (bindingResult.hasErrors()) {
-			System.out.println(bindingResult.getAllErrors());
 			return "redirect:/listas";
 		}
 		Lista listaActual = listaMusicasForm.getLista();
@@ -112,7 +110,6 @@ public class ListaController {
 			HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		if (bindingResult.hasErrors()) {
-			System.out.println(bindingResult.getAllErrors());
 			return listaAddMusica(listaMusicaForm, modelo, request);
 		}
 		List<Musica> musicaAniadir = Arrays.asList(listaMusicaForm.getMusica());

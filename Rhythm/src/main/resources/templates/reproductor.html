@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Reproductor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+<body>
+<div class="container d-flex align-items-center justify-content-center">
+		<div
+			class="card bg-light w-75 d-flex align-items-center text-center justify-content-center">
+			<article class="card-body mx-auto " style="max-width: 700px;">
+			<h1 id="titulo-cancion" class="card-title mt-3"></h1>
+			<img id="portada" src=""  alt="Portada" class="rounded" width="200" heigth="400">
+			<br>
+			<audio id="audio" controls autoplay="false">
+				<source id="fuente-audio" src="" type="audio/mp3">
+			</audio>
+			<br>
+			<button onclick="cambiarCancion(-1)" class="btn btn-dark">&#8810;</button>
+			<button onclick="cambiarCancion(1)" class="btn btn-dark">&#8811;</button>
+			<br>
+			<br>
+			<button id="toggleListBtn" class="btn btn-dark">Ocultar lista de reproducción</button>
+			<br>
+			<br>
+			<table class="table table-dark table-striped" id="playlist">
+			<thead>
+				<tr>
+					<th>Título</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr><td><a href="#" onclick="cargarCancion(0)" class="nav-link link-primary">Michael Jackson-Chicago</a></td></tr>
+				<tr><td><a href="#" onclick="cargarCancion(1)" class="nav-link link-primary">Lolo Zouaï-Desert Rose</a></td></tr>
+				<tr><td><a href="#" onclick="cargarCancion(2)" class="nav-link link-primary">The weeknd-Moth To A Flame</a></td></tr>
+			</tbody>
+		</table>
+			</article>
+		</div>
+
+	</div>
+	<script>
+		var playlist = document.getElementById("playlist");
+		var tituloCancion = document.getElementById("titulo-cancion");
+		var portada = document.getElementById("portada");
+		var audio = document.getElementById("audio");
+		var fuenteAudio = document.getElementById("fuente-audio");
+
+		var canciones = [
+			{titulo: "Michael Jackson-Chicago", src: "audio/Chicago.mp3", portada: "img/Chicago.png"},
+			{titulo: "Lolo Zouaï-Desert Rose", src: "audio/Desert_Rose.mp3", portada: "img/Desert_Rose.png"},
+			{titulo: "The weeknd-Moth To A Flame", src: "audio/Moth_To_A_Flame.mp3", portada: "img/Moth_To_A_Flame.png"}
+		];
+
+		var indiceCancionActual = 0;
+
+		cargarCancion(indiceCancionActual);
+
+		function cargarCancion(indice) {
+			fuenteAudio.src = canciones[indice].src;
+			tituloCancion.textContent = canciones[indice].titulo;
+			portada.src = canciones[indice].portada;
+			audio.load();
+		}
+
+		function cambiarCancion(delta) {
+			indiceCancionActual += delta;
+			if (indiceCancionActual < 0) {
+				indiceCancionActual = canciones.length - 1;
+			} else if (indiceCancionActual >= canciones.length) {
+				indiceCancionActual = 0;
+			}
+			cargarCancion(indiceCancionActual);
+			audio.play();
+		}
+
+		window.onload = function() {
+			cargarCancion(indiceCancionActual);
+			audio.pause();
+		}
+		toggleListBtn.addEventListener("click", function() {
+		    if (playlist.style.visibility === "hidden") {
+		        playlist.style.visibility = "visible";
+		        toggleListBtn.textContent = "Ocultar lista de reproducción";
+		    } else {
+		        playlist.style.visibility = "hidden";
+		        toggleListBtn.textContent = "Mostrar lista de reproducción";
+		    }
+		});
+	</script>
+</body>
+</html>

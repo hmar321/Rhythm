@@ -27,6 +27,36 @@ public class UsuarioController {
 	@Autowired
 	private UsuarioRepositorio usuarRepos;
 
+	@GetMapping("/export")
+	public String exportar(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		try {
+			if (!session.getAttribute("codigo").equals("ADMIN")) {
+				return "redirect:/cerrar_sesion";
+			}
+
+		} catch (Exception e) {
+			return "/aviso_session";
+
+		}
+		return "/export";
+	}
+
+	@GetMapping("/import")
+	public static String importar(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		try {
+			if (!session.getAttribute("codigo").equals("ADMIN")) {
+				return "redirect:/cerrar_sesion";
+			}
+
+		} catch (Exception e) {
+			return "/aviso_session";
+
+		}
+		return "/import";
+	}
+
 	@GetMapping(path = "/cerrar_sesion")
 	public String cerrarSession(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -39,38 +69,6 @@ public class UsuarioController {
 		HttpSession session = request.getSession();
 		session.removeAttribute("error");
 		return "/index";
-	}
-	
-	@GetMapping("/export")
-    public String exportar(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		try {
-			if (!session.getAttribute("codigo").equals("ADMIN")) {
-				System.out.println("login desde crear musica");
-				return "redirect:/cerrar_sesion";
-			}
-
-		} catch (Exception e) {
-			return "/aviso_session";
-
-		}
-        return "/export";
-    }
-	
-	@GetMapping("/import")
-	public static String importar(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		try {
-			if (!session.getAttribute("codigo").equals("ADMIN")) {
-				System.out.println("login desde crear musica");
-				return "redirect:/cerrar_sesion";
-			}
-
-		} catch (Exception e) {
-			return "/aviso_session";
-
-		}
-		return "/import";
 	}
 
 	@PostMapping(path = "/post_login")
@@ -141,7 +139,6 @@ public class UsuarioController {
 		HttpSession session = request.getSession();
 		try {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
-				System.out.println("login desde lista usuarios");
 				return "redirect:/cerrar_sesion";
 			}
 		} catch (Exception e) {
@@ -170,7 +167,6 @@ public class UsuarioController {
 		HttpSession session = request.getSession();
 		try {
 			if (!session.getAttribute("codigo").equals("ADMIN")) {
-				System.out.println("login desde inicio admin");
 				return "redirect:/cerrar_sesion";
 			}
 		} catch (Exception e) {
@@ -178,7 +174,5 @@ public class UsuarioController {
 		}
 		return "/inicio_admin";
 	}
-	
-	
 
 }
