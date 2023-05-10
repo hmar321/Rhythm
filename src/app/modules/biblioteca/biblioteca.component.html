@@ -1,0 +1,4 @@
+<p-tabMenu [model]="items" [activeItem]="activeItem" (activeItemChange)="onActiveItemChange($event)"></p-tabMenu>
+<app-resultados class="cardbox-container" *ngIf="activeItem==items[0]" [resultados]="listas" [insertAddButton]="true"></app-resultados>
+<app-resultados class="cardbox-container" *ngIf="activeItem==items[1]" [resultados]="artistas" [insertAddButton]="true"></app-resultados>
+<app-resultados class="cardbox-container" *ngIf="activeItem==items[2]" [resultados]="albumes" [insertAddButton]="true"></app-resultados>

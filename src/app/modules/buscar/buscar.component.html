@@ -1,0 +1,17 @@
+<app-banner (buscarEvent)="textoBuscar$.next($event)"></app-banner>
+<div class="m-2 mt-3">
+  <ng-template [ngIf]="this.albumFil.length!=0">
+    <h3>Álbumes</h3>
+    <app-resultados class="cardbox-container" [resultados]="albumFil"></app-resultados>
+    <p-divider></p-divider>
+  </ng-template>
+  <ng-template [ngIf]="this.artisFil.length!=0">
+    <h3>Artistas</h3>
+    <app-resultados class="cardbox-container" [resultados]="artisFil"></app-resultados>
+    <p-divider></p-divider>
+  </ng-template>
+  <ng-template [ngIf]="this.listaFil.length!=0">
+    <h3>Listas</h3>
+    <app-resultados class="cardbox-container" [resultados]="listaFil"></app-resultados>
+  </ng-template>
+</div>

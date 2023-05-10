@@ -1,0 +1,14 @@
+.cardbox {
+  padding: 1rem 1rem 1rem 0;
+}
+
+.addButton {
+  margin-top: 1rem;
+  width: 16rem;
+  height: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  background: rgba(1, 1, 1, 0.089);
+}

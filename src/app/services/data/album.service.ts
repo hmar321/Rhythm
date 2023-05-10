@@ -1,0 +1,34 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable, catchError, of, tap } from 'rxjs';
+import { Album } from 'src/app/model/data/Album';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class AlbumService {
+  host: string = 'http://localhost:7116';
+  api: string = '/api/album';
+
+  constructor(private http: HttpClient) {}
+
+  findAllAlbumes(): Observable<Album[]> {
+    return this.http.get<Album[]>(this.host + this.api);
+  }
+
+  findAlbumById(id: number): Observable<Album> {
+    return this.http.get<Album>(this.host + this.api + '/' + id);
+  }
+
+  insertAlbum(album: Album): Observable<boolean> {
+    return this.http.post<boolean>(this.host + this.api, album);
+  }
+
+  updateAlbum(album: Album): Observable<boolean> {
+    return this.http.put<boolean>(this.host + this.api + '/' + album.id, album);
+  }
+
+  deleteAlbum(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(this.host + this.api + '/' + id);
+  }
+}

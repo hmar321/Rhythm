@@ -1,0 +1,10 @@
+/* [style]="{ width: '16rem', height: '14rem' }" */
+:host ::ng-deep .p-card {
+  width: 16rem;
+  height: 14rem;
+}
+:host ::ng-deep .p-card-header img{
+  max-width: 300px;
+  max-height: 120px;
+  object-fit: cover;
+}

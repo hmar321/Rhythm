@@ -1,0 +1,20 @@
+.list-titulo {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.list-artista {
+  font-size: 18px;
+  margin-bottom: 5px;
+  color: #777;
+}
+
+.list-visitas {
+  font-size: 16px;
+  color: #999;
+}
+
+.img-thumbnail{
+  border: none;
+  max-width: 10rem;
+}

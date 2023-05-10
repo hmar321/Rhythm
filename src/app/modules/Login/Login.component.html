@@ -1,0 +1,45 @@
+<p-toast></p-toast>
+<div class="container loginContainer d-flex justify-content-center align-items-center contenerdor-principal">
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+    <p-panel header="Iniciar sesión">
+      <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid d-flex align-items-center flex-column">
+        <div class="ui-grid-row inputAjuste mt-3">
+          <span class="p-float-label">
+            <input pInputText type="text" class="form-control" id="email" formControlName="email" name="email" />
+            <label htmlFor="email">Email</label>
+          </span>
+          <div class="ui-grid-col-4">
+            <div [hidden]="loginForm.controls['email'].valid ||
+                !loginForm.controls['email'].dirty"
+                class="alert alert-danger">
+              Email es un campo obligatorio
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row inputAjuste mt-4">
+          <div class="ui-grid-col-6">
+            <span class="p-float-label">
+              <input pInputText type="password" class="form-control" id="password" formControlName="password"
+                name="password" />
+              <label htmlFor="password">Contraseña</label>
+            </span>
+          </div>
+          <div class="ui-grid-col-4">
+            <div [hidden]="
+                loginForm.controls['password'].valid ||
+                !loginForm.controls['password'].dirty
+              " class="alert alert-danger">
+              Contraseña es un campo obligatorio
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row inputAjuste">
+          <div class="ui-grid-col-6 mt-3">
+            <button pButton type="submit" label="Entrar" [disabled]="!loginForm.valid" (click)="showSuccess()"></button>
+          </div>
+          <div class="ui-grid-col-4"></div>
+        </div>
+      </div>
+    </p-panel>
+  </form>
+</div>

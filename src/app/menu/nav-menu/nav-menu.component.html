@@ -1,0 +1,49 @@
+<p-toast></p-toast>
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+  <div class="logo-container">
+    <button class="logo d-flex justify-content-center" (click)="toggleCollapse()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="auto" height="auto" fill="currentColor" class="bi bi-music-note" viewBox="0 0 16 16">
+        <path d="M9 13c0 1.105-1.12 2-2.5 2S4 14.105 4 13s1.12-2 2.5-2 2.5.895 2.5 2z"/>
+        <path fill-rule="evenodd" d="M9 3v10H8V3h1z"/>
+        <path d="M8 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 13 2.22V4L8 5V2.82z"/>
+      </svg>
+    </button>
+    <div class="logo-text" *ngIf="collapsed">
+      <a [routerLink]="['']" class="logo-text-link">Rhythm</a>
+    </div>
+    <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+      <i class="fal fa-times close-icon"></i>
+    </button>
+  </div>
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item" *ngFor="let data of navData">
+      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }">
+        <i class="sidenav-link-icon" [class]="data.icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">
+          {{ data.label }}
+        </span>
+      </a>
+    </li>
+
+    <li class="sesion-item" *ngIf="sesionService.isLoged; else elseBlock">
+      <a class="sidenav-nav-link" [routerLink]="navLogoutData.routeLink" (click)="cerrarSesion()" pRipple (click)="showInfo()" label="Info">
+        <i class="sidenav-link-icon" [class]="navLogoutData.icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">
+          {{ navLogoutData.label }}
+        </span>
+      </a>
+    </li>
+    <ng-template #elseBlock>
+      <li class="sesion-item">
+        <a class="sidenav-nav-link" [routerLink]="navLoginData.routeLink" routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          <i class="sidenav-link-icon" [class]="navLoginData.icon"></i>
+          <span class="sidenav-link-text" *ngIf="collapsed">
+            {{ navLoginData.label }}
+          </span>
+        </a>
+      </li>
+    </ng-template>
+  </ul>
+</div>

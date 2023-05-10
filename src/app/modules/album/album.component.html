@@ -1,0 +1,7 @@
+<div class="container">
+  <app-banner-listas class="row list-info" [portada]="'https://primefaces.org/cdn/primeng/images/usercard.png'"
+    [titulo]="album.titulo" [nombre]="album.usuarios[0].nombre" [visitas]="album.visitas" [estreno]="album.estreno"></app-banner-listas>
+  <div class="row list-canciones">
+    <app-canciones-tabla [canciones]="album.canciones"></app-canciones-tabla>
+  </div>
+</div>

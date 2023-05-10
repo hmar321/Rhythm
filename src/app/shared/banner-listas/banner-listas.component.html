@@ -1,0 +1,13 @@
+<div class="col-md-3">
+  <img src="{{portada}}" alt="Portada" class="img-thumbnail">
+</div>
+<div class="col-md-9">
+  <h1 class="list-titulo" *ngIf="titulo!=null">{{titulo}}</h1>
+  <h2 class="list-artista" *ngIf="nombre!=null">
+    <ng-template [ngIf]="estreno!=null" [ngIfElse]="elseBlock">Artista</ng-template>
+    <ng-template #elseBlock>Usuario</ng-template>
+    : {{nombre}}
+  </h2>
+  <h3 class="list-visitas" *ngIf="visitas!=null">Visitas: {{visitas}}</h3>
+  <h3 class="list-visitas" *ngIf="estreno!=null">Estreno: {{estreno| date: "dd-MM-yyyy"}}</h3>
+</div>

@@ -1,0 +1,19 @@
+.loginContainer {
+  min-height: 60vh;
+  max-height: none;
+  display: flex;
+  align-items: center;
+}
+:host ::ng-deep .p-panel-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+:host ::ng-deep .p-panel {
+  width: 400px;
+}
+
+.inputAjuste {
+  width: 20rem;
+}

@@ -1,0 +1,23 @@
+:host ::ng-deep .p-card-content{
+  display: flex;
+  padding: 0.03rem;
+}
+.album-info {
+  background-color: #ffffff;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+
+.album-canciones {
+  background-color: #ffffff;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  height: 70%;
+}
+
+.container{
+  height: 90vh;
+}

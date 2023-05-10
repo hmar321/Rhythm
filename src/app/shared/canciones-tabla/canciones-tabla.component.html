@@ -1,0 +1,18 @@
+<p-table [value]="canciones" dataKey="titulo" [tableStyle]="{ 'min-width': '60rem' }" scrollHeight='50vh' [scrollable]='true'>
+  <ng-template pTemplate="header">
+    <tr>
+      <th [pSortableColumn]="'titulo'">Titulo <p-sortIcon field="titulo"></p-sortIcon></th>
+      <th pSortableColumn="artistas">Artistas <p-sortIcon field="artistas"></p-sortIcon></th>
+      <th pSortableColumn="reproducciones">Reproducciones <p-sortIcon field="reproducciones"></p-sortIcon></th>
+      <th pSortableColumn="duracion">Duración <p-sortIcon field="duracion"></p-sortIcon></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-cancion let-expanded="expanded">
+    <tr>
+      <td>{{ cancion.titulo }}</td>
+      <td><ng-template ngFor let-artista [ngForOf]="cancion.artistas">{{artista.nombre}} </ng-template></td>
+      <td>{{ cancion.reproducciones }}</td>
+      <td>{{ cancion.duracion | date: 'mm:ss'}}</td>
+    </tr>
+  </ng-template>
+</p-table>
