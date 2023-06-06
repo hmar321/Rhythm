@@ -30,9 +30,6 @@ export class CancionesTablaComponent implements OnInit {
     if (this.inFavoritos == null) {
       this.inFavoritos = false;
     }
-    // if (condition) {
-
-    // }
     if (this.canciones != null) {
       this.canciones.forEach((cancion: Cancion) => {
         cancion.enFavorito = this.favoritoService.existeEnCanciones(cancion);

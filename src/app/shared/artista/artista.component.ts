@@ -24,7 +24,6 @@ export class ArtistaComponent implements OnInit {
     private sesionService: SesionService,
     private cookieService: CookieService
   ) {
-    //router.events.subscribe((event) => {});
   }
   ngOnInit() {
     this.id = +this.cookieService.get('ArtistaId');

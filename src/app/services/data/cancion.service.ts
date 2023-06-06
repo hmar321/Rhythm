@@ -61,7 +61,7 @@ export class CancionService {
       .set('idElemento', idElemento);
     return this.http.put<boolean>(this.host + this.api + '/AddLista?', {}, { params });
   }
-  //album
+
   removeAlbumFromCancionAlbums(id: number, idElemento: number): Observable<boolean> {
     const params = new HttpParams()
       .set('id', id)
