@@ -1,0 +1,12 @@
+<div class="container">
+  <app-banner-listas
+    class="row list-info"
+    [portada]="portada"
+    [titulo]="tituloLista"
+    [nombre]="usuarioNombre"
+    [visitas]="visitas"
+  ></app-banner-listas>
+  <div class="row list-canciones" *ngIf="canciones">
+    <app-canciones-tabla [inFavoritos]="inFavoritos" [inListaCreada]="inListasCreadas"  [canciones]="canciones" [addBoton]="inListasCreadas" (addCanciones)="addCancionesDialog()"></app-canciones-tabla>
+  </div>
+</div>

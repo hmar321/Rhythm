@@ -1,0 +1,15 @@
+<div class="container">
+  <app-banner-listas
+    class="row cancion-info"
+    [portada]="portada"
+    [estreno]="estreno"
+    [titulo]="tituloCancion"
+    [nombre]="artistasNombres"
+    [visitas]="visitas"
+    [duracion]="duracion"
+  ></app-banner-listas>
+  <div class="row cancion-lyric">
+    <pre class="col-6">{{ letra }}</pre>
+    <pre class="col-6">{{ letra2 }}</pre>
+  </div>
+</div>

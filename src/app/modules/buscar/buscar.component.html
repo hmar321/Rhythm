@@ -1,17 +1,29 @@
-<app-banner (buscarEvent)="textoBuscar$.next($event)"></app-banner>
+<p-toolbar>
+  <div class="p-toolbar-group-start">
+    <span class="p-input-icon-left">
+      <i class="pi {{inconoLabel}}"></i>
+      <input type="text" placeholder="Buscar" pInputText [(ngModel)]="busqueda" (keyup)="onKeyUpEvent()" />
+    </span>
+  </div>
+</p-toolbar>
 <div class="m-2 mt-3">
-  <ng-template [ngIf]="this.albumFil.length!=0">
-    <h3>Álbumes</h3>
-    <app-resultados class="cardbox-container" [resultados]="albumFil"></app-resultados>
+  <ng-template [ngIf]="this.canciones.length!=0">
+    <h3>Canciones</h3>
+    <app-resultados class="cardbox-container" [resultados]="canciones" [ruta]="'cancion'"></app-resultados>
     <p-divider></p-divider>
   </ng-template>
-  <ng-template [ngIf]="this.artisFil.length!=0">
+  <ng-template [ngIf]="this.albums.length!=0">
+    <h3>Álbums</h3>
+    <app-resultados class="cardbox-container" [resultados]="albums" [ruta]="'album'"></app-resultados>
+    <p-divider></p-divider>
+  </ng-template>
+  <ng-template [ngIf]="this.artistas.length!=0">
     <h3>Artistas</h3>
-    <app-resultados class="cardbox-container" [resultados]="artisFil"></app-resultados>
+    <app-resultados class="cardbox-container" [resultados]="artistas" [ruta]="'artista'"></app-resultados>
     <p-divider></p-divider>
   </ng-template>
-  <ng-template [ngIf]="this.listaFil.length!=0">
+  <ng-template [ngIf]="this.listas.length!=0&&sesionService.isLoged()">
     <h3>Listas</h3>
-    <app-resultados class="cardbox-container" [resultados]="listaFil"></app-resultados>
+    <app-resultados class="cardbox-container" [resultados]="listas" [ruta]="'lista'"></app-resultados>
   </ng-template>
 </div>

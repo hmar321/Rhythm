@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import { Genero } from 'src/app/model/data/Genero';
 import { GeneroService } from 'src/app/services/data/genero.service';
+import { SesionService } from 'src/app/services/util/sesion.service';
 
-import { SesionService } from 'src/app/services/sesion.service';
+
 
 @Component({
   selector: 'app-home',
@@ -10,8 +12,8 @@ import { SesionService } from 'src/app/services/sesion.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  generos: any = [];
-  listas: any = [];
+  generos: Genero[] = [];
+  listas: Genero[] = [];
   constructor(
     public sesionService: SesionService,
     private coockieService: CookieService,
@@ -21,7 +23,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.generoService.findAllGeneros().subscribe(generos => {
       this.generos = generos;
-
     });
   }
 }

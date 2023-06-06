@@ -1,0 +1,23 @@
+.btn {
+  height: 2.5rem;
+  background: rgb(78, 79, 80);
+  color: white;
+}
+.btn:enabled:hover {
+  height: 2.5rem;
+  background: rgb(108, 112, 116);
+  color: white;
+}
+.favorito{
+  color: rgb(248, 84, 84);
+}
+.favorito:enabled:hover {
+  color: rgb(248, 84, 84);
+}
+
+.quitar{
+  background: rgb(158, 27, 27);
+}
+.quitar:enabled:hover {
+  background: rgb(240, 49, 49);
+}

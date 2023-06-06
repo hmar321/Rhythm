@@ -1,8 +1,8 @@
 <div class="cardbox" *ngFor="let resultado of resultados">
-  <app-card [card]="resultado"></app-card>
-<!-- </div>
-  <a routerLink="/buscar" class="link-sindec" *ngIf="insertAddButton">
-    <div class="addButton">
-      <p-button icon="pi pi-plus" styleClass="p-button-rounded p-button-secondary"></p-button>
-    </div>
-  </a> -->
+  <app-card (listaBorrada)=" eventoListaBorrada()" [card]="resultado" [ruta]="ruta"></app-card>
+</div>
+<a (click)="botonPresionado()" class="link-sindec" *ngIf="insertAddButton">
+  <div class="addButton">
+    <p-button icon="pi pi-plus" styleClass="p-button-rounded p-button-secondary"></p-button>
+  </div>
+</a>

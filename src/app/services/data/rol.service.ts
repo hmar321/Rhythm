@@ -7,7 +7,7 @@ import { Rol } from 'src/app/model/data/Rol';
   providedIn: 'root',
 })
 export class RolService {
-  host: string = 'http://localhost:7116';
+  host: string = 'https://rhythmback-production.up.railway.app';
   api: string = '/api/rol';
 
   constructor(private http: HttpClient) {}
@@ -20,8 +20,8 @@ export class RolService {
     return this.http.get<Rol>(this.host + this.api + '/' + id);
   }
 
-  insertRol(rol: Rol): Observable<boolean> {
-    return this.http.post<boolean>(this.host + this.api, rol);
+  insertRol(rol: Rol): Observable<Rol> {
+    return this.http.post<Rol>(this.host + this.api, rol);
   }
 
   updateRol(rol: Rol): Observable<boolean> {

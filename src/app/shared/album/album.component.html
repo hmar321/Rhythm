@@ -1,0 +1,13 @@
+<div class="container">
+  <app-banner-listas
+    class="row list-info"
+    [portada]="portada"
+    [estreno]="estreno"
+    [titulo]="tituloAlbum"
+    [nombre]="artistasNombres"
+    [visitas]="visitas"
+  ></app-banner-listas>
+  <div class="row list-canciones">
+    <app-canciones-tabla [canciones]="canciones"></app-canciones-tabla>
+  </div>
+</div>

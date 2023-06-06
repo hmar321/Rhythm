@@ -1,0 +1,24 @@
+.cancion-info {
+  background-color: #ffffff;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-height: 20vh;
+}
+
+
+.cancion-lyric {
+  background-color: #ffffff;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-height: 75vh;
+}
+
+.container{
+  min-height: 90vh;
+}
+pre {
+  line-height: 1.1em;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,15 @@
+<div class="container">
+  <app-banner-listas
+    class="row list-info"
+    [portada]="portada"
+    [titulo]="tituloArtista"
+    [visitas]="visitas"
+  ></app-banner-listas>
+  <div class="row list-canciones">
+    <app-resultados
+      class="cardbox-container"
+      [resultados]="albums"
+      [ruta]="'album'"
+    ></app-resultados>
+  </div>
+</div>

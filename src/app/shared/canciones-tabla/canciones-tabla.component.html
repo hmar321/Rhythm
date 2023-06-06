@@ -1,18 +1,55 @@
-<p-table [value]="canciones" dataKey="titulo" [tableStyle]="{ 'min-width': '60rem' }" scrollHeight='50vh' [scrollable]='true'>
+<p-table [value]="canciones" dataKey="titulo" [tableStyle]="{ 'min-width': '60rem' }" scrollHeight="70vh"
+  [scrollable]="true">
   <ng-template pTemplate="header">
     <tr>
-      <th [pSortableColumn]="'titulo'">Titulo <p-sortIcon field="titulo"></p-sortIcon></th>
-      <th pSortableColumn="artistas">Artistas <p-sortIcon field="artistas"></p-sortIcon></th>
-      <th pSortableColumn="reproducciones">Reproducciones <p-sortIcon field="reproducciones"></p-sortIcon></th>
-      <th pSortableColumn="duracion">Duración <p-sortIcon field="duracion"></p-sortIcon></th>
+      <th [pSortableColumn]="'titulo'">
+        Titulo <p-sortIcon field="titulo"></p-sortIcon>
+      </th>
+      <th pSortableColumn="artistas">
+        Artistas <p-sortIcon field="artistas"></p-sortIcon>
+      </th>
+      <th pSortableColumn="visitas">
+        Reproducciones <p-sortIcon field="visitas"></p-sortIcon>
+      </th>
+      <th pSortableColumn="duracion">
+        Duración <p-sortIcon field="duracion"></p-sortIcon>
+      </th>
+      <ng-template [ngIf]="inListaCreada&&!inFavoritos">
+        <th></th>
+      </ng-template>
+      <th>
+        <ng-template [ngIf]="addBoton">
+          <button class="btn" (click)="emitirAddCanciones()">
+            <i class="pi pi-plus"></i>
+          </button>
+        </ng-template>
+      </th>
+
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-cancion let-expanded="expanded">
     <tr>
       <td>{{ cancion.titulo }}</td>
-      <td><ng-template ngFor let-artista [ngForOf]="cancion.artistas">{{artista.nombre}} </ng-template></td>
-      <td>{{ cancion.reproducciones }}</td>
-      <td>{{ cancion.duracion | date: 'mm:ss'}}</td>
+      <td>{{ cancion.artistas }}</td>
+      <td>{{ cancion.visitas }}</td>
+      <td>{{ cancion.duracion }}</td>
+      <td>
+        <button (click)="accionFavorito(cancion)" [ngClass]="{'btn': true, 'favorito': cancion.enFavorito}">
+          <i class="pi pi-heart-fill"></i>
+        </button>
+      </td>
+      <ng-template [ngIf]="inListaCreada&&!inFavoritos">
+        <td>
+          <button (click)="quitarCancion(cancion)" class="btn quitar">
+            <i class="pi pi-minus"></i>
+          </button>
+        </td>
+      </ng-template>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="4">No se han añadido canciones.</td>
     </tr>
   </ng-template>
 </p-table>

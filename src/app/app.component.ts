@@ -12,11 +12,10 @@ export class AppComponent {
   title = 'Rhythm';
   isSideNavCollabsed = false;
   screenWith = 0;
-
   constructor() {}
 
   onToggleSideNav(data: SideNavToggle): void {
-    this.screenWith=data.screenWith;
-    this.isSideNavCollabsed=data.collabsed;
+    this.screenWith = data.screenWith;
+    this.isSideNavCollabsed = data.collabsed;
   }
 }

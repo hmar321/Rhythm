@@ -1,15 +1,14 @@
-import { Album } from './Album';
 import { Artista } from './Artista';
-import { Genero } from './Genero';
-import { Lista } from './Lista';
 
 export interface Cancion {
-  id: number;
-  titulo?: string;
-  duracion?: Date;
-  reproducciones?: number;
-  albumes?: Album[];
-  artistas: Artista[];
-  generos?: Genero[];
-  listas?: Lista[];
+  id?: number;
+  titulo?: string|null;
+  portada?:string|null;
+  visitas?: number|null;
+  duracion?: Date|null;
+  estreno?:Date|null;
+  artistas?: string|null;
+  lyrics?:string|null;
+  enFavorito:boolean|null;
 }
+

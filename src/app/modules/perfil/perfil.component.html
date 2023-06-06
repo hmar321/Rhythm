@@ -1,0 +1,140 @@
+<div class="container">
+  <div class="row user-banner">
+    <div class="col-md-2">
+      <img src="{{ portada }}" alt="Portada" class="img-thumbnail" />
+    </div>
+    <div class="col-md-4">
+      <h1>{{nick}}</h1>
+    </div>
+  </div>
+  <div class="row user-body">
+    <div class="forms-container row ">
+      <div class="d-flex justify-content-center formulario">
+        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+          <div class=" ui-grid ui-grid-responsive ui-grid-pad ui-fluid d-flex align-items-start flex-column">
+            <div class="datos-titulo">Datos</div>
+            <div class="ui-grid-row mt-5">
+              <span class="p-float-label">
+                <input pInputText type="text" class="form-control" id="email" formControlName="email" name="email"
+                  [(ngModel)]="email" />
+                <label htmlFor="email">Email</label>
+              </span>
+              <div class="ui-grid-col-4">
+                <div [hidden]="
+                  sinEnviar ||
+                  loginForm.controls['email'].valid ||
+                  !loginForm.controls['email'].dirty
+                " class="alert alert-danger">
+                  Error en el campo email.
+                </div>
+              </div>
+            </div>
+            <div class="ui-grid-row mt-4">
+              <div class="ui-grid-col-6">
+                <span class="p-float-label">
+                  <input pInputText type="text" class="form-control" id="nombre" formControlName="nombre"
+                    [(ngModel)]="nombre" name="nombre" />
+                  <label htmlFor="nombre">Nombre</label>
+                </span>
+              </div>
+              <div class="ui-grid-col-4">
+                <div [hidden]="
+                  sinEnviar ||
+                  loginForm.controls['nombre'].valid ||
+                  !loginForm.controls['nombre'].dirty
+                " class="alert alert-danger">
+                  Error en el campo nombre.
+                </div>
+              </div>
+            </div>
+            <div class="ui-grid-row mt-4">
+              <div class="ui-grid-col-6">
+                <span class="p-float-label">
+                  <input pInputText type="text" class="form-control" id="nick" formControlName="nick" [(ngModel)]="nick"
+                    name="nick" />
+                  <label htmlFor="nick">Nick</label>
+                </span>
+              </div>
+              <div class="ui-grid-col-4">
+                <div [hidden]="
+                  sinEnviar ||
+                  loginForm.controls['nick'].valid ||
+                  !loginForm.controls['nick'].dirty
+                " class="alert alert-danger">
+                  Error en el campo nick.
+                </div>
+              </div>
+            </div>
+            <div class="ui-grid-row mt-4 guardarContenedor">
+              <button pButton type="submit" label="Guardar"></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="d-flex justify-content-center formulario">
+        <form (ngSubmit)="cambiarPassword()" [formGroup]="passForm">
+          <div class=" ui-grid ui-grid-responsive ui-grid-pad ui-fluid d-flex align-items-start flex-column">
+            <div class="datos-titulo">Cambiar contraseña</div>
+            <div class="ui-grid-row mt-5">
+              <span class="p-float-label">
+                <p-password [(ngModel)]="passActual" id="passActual" formControlName="passActual" name="passActual"
+                  [(ngModel)]="passActual" [feedback]="false" [toggleMask]="true"></p-password>
+                <label htmlFor="passActual">Contraseña</label>
+              </span>
+              <div class="ui-grid-col-4">
+                <div [hidden]="
+                  sinEnviarPass ||
+                  passForm.controls['passActual'].valid ||
+                  !passForm.controls['passActual'].dirty
+                " class="alert alert-danger">
+                  Error en el campo contraseña.
+                </div>
+              </div>
+            </div>
+            <div class="ui-grid-row mt-4">
+              <div class="ui-grid-col-6">
+
+                <span class="p-float-label">
+                  <p-password id="newPass" formControlName="newPass" [(ngModel)]="newPass" name="newPass"
+                    [feedback]="false" [toggleMask]="true"></p-password>
+                  <label htmlFor="newPass">Contraseña nueva</label>
+                </span>
+
+              </div>
+              <div class="ui-grid-col-4">
+                <div [hidden]="
+                  sinEnviarPass ||
+                  passForm.controls['newPass'].valid ||
+                  !passForm.controls['newPass'].dirty
+                " class="alert alert-danger">
+                  Error en el campo contraseña nueva.
+                </div>
+              </div>
+            </div>
+            <div class="ui-grid-row mt-4">
+              <div class="ui-grid-col-6">
+                <span class="p-float-label">
+                  <p-password id="repNewPass" formControlName="repNewPass" [(ngModel)]="repNewPass" name="repNewPass"
+                    [feedback]="false" [toggleMask]="true"></p-password>
+                  <label htmlFor="repNewPass">Repetir contraseña</label>
+                </span>
+              </div>
+              <div class="ui-grid-col-4">
+                <div [hidden]="
+                  sinEnviarPass ||
+                  passForm.controls['repNewPass'].valid ||
+                  !passForm.controls['repNewPass'].dirty
+                " class="alert alert-danger">
+                  Error en el campo repetir contraseña.
+                </div>
+              </div>
+            </div>
+            <div class="ui-grid-row mt-4 guardarContenedor">
+              <button pButton type="submit" label="Cambiar"></button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

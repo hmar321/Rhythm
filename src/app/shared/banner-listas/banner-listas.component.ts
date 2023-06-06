@@ -11,6 +11,7 @@ export class BannerListasComponent implements OnInit {
   @Input() nombre: any;
   @Input() visitas: any;
   @Input() estreno: any;
+  @Input() duracion: any;
   constructor() {}
 
   ngOnInit() {}

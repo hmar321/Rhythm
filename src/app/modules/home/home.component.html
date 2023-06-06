@@ -1,11 +1,11 @@
 <div>
   <ng-template [ngIf]="generos.length!=0">
     <h3>Generos</h3>
-  <app-resultados [resultados]="generos"></app-resultados>
+  <app-resultados class="cardbox-container" [resultados]="generos" [ruta]="'genero'"></app-resultados>
   </ng-template>
   <ng-template [ngIf]="listas.length!=0">
     <p-divider></p-divider>
     <app-titulo [titulo]="'Tus listas'"></app-titulo>
-    <app-resultados [resultados]="listas"></app-resultados>
+    <app-resultados class="cardbox-container" [resultados]="listas" [ruta]="'lista'"></app-resultados>
   </ng-template>
 </div>

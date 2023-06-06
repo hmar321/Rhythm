@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="card flex flex-wrap justify-content-center gap-3">
+    <span class="p-input-icon-left">
+      <i class="pi {{inconoLabel}}"></i>
+      <input type="text" pInputText placeholder="Buscador" [(ngModel)]="artistaBuscar" (keyup)="onKeyUpEvent()" pAutoFocus [autofocus]="true"/>
+    </span>
+
+  </div>
+  <div class="mt-3">
+    <p-multiSelect [options]="canciones" [(ngModel)]="selectedCanciones" optionLabel="titulo"
+    defaultLabel="{{textoDropdown}}" scrollHeight="250px" display="chip" ></p-multiSelect>
+    <p-button (onClick)="enviarCanciones()" icon="pi pi-check"></p-button>
+  </div>
+</div>

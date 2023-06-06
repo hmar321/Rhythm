@@ -1,0 +1,77 @@
+.user-banner {
+  background-color: #ffffff;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-height: 20vh;
+}
+
+
+.user-body {
+  background-color: #ffffff;
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-radius: 10px;
+  background: rgb(231, 226, 226);
+  padding: 2rem;
+
+}
+
+.filas {
+  width: 85%;
+}
+
+.forms-container {
+  background-color: rgb(180, 175, 175);
+  border-radius: 10px;
+  padding: 20px;
+  min-height: 75%;
+}
+
+.formulario{
+  width: 50%;
+}
+
+.container {
+  min-height: 90vh;
+}
+
+.titulo {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.img-thumbnail {
+  border: none;
+  max-width: 10rem;
+}
+
+
+.datos-titulo{
+  color: #4f4f4f;
+  font-size: 1.8rem;
+}
+
+.password-titulo{
+  color: #ffffff;
+  font-size: 1.8rem;
+}
+
+:host ::ng-deep .p-inputtext{
+  width: 100%;
+}
+:host ::ng-deep .p-password{
+  width: 100%;
+}
+
+.col-md-2{
+  min-width: 10rem;
+}

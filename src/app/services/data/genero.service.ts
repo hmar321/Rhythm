@@ -6,7 +6,7 @@ import { Genero } from 'src/app/model/data/Genero';
   providedIn: 'root',
 })
 export class GeneroService {
-  host: string = 'http://localhost:7116';
+  host: string = 'https://rhythmback-production.up.railway.app';
   api: string = '/api/genero';
 
   constructor(private http: HttpClient) {}
@@ -19,8 +19,8 @@ export class GeneroService {
     return this.http.get<Genero>(this.host + this.api + '/' + id);
   }
 
-  insertGenero(genero: Genero): Observable<boolean> {
-    return this.http.post<boolean>(this.host + this.api, genero);
+  insertGenero(genero: Genero): Observable<Genero> {
+    return this.http.post<Genero>(this.host + this.api, genero);
   }
 
   updateGenero(genero: Genero): Observable<boolean> {

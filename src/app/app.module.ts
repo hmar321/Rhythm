@@ -1,5 +1,5 @@
 //angular
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,7 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 //primeng
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -27,6 +27,10 @@ import { TabViewModule } from 'primeng/tabview';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DataViewModule } from 'primeng/dataview';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { AutoFocusModule } from 'primeng/autofocus';
 
 //servicios
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -37,43 +41,53 @@ import { GeneroService } from './services/data/genero.service';
 import { ListaService } from './services/data/lista.service';
 import { RolService } from './services/data/rol.service';
 import { UsuarioService } from './services/data/usuario.service';
-import { SesionService } from './services/sesion.service';
+import { SesionService } from './services/util/sesion.service';
+import { LoginGuardian } from './modules/Login/login-guardian';
+import { FavoritoService } from './services/util/favorito.service';
 
 //componentes
 import { AppComponent } from './app.component';
-import { BodyComponent } from './menu/body/body.component';
-import { NavMenuComponent } from './menu/nav-menu/nav-menu.component';
+import { BodyComponent } from './shared/body/body.component';
+import { NavMenuComponent } from './shared/nav-menu/nav-menu.component';
 import { LoginComponent } from './modules/Login/Login.component';
-import { AjustesComponent } from './modules/ajustes/ajustes.component';
 import { BibliotecaComponent } from './modules/biblioteca/biblioteca.component';
-import { BannerComponent } from './modules/buscar/banner/banner.component';
 import { BuscarComponent } from './modules/buscar/buscar.component';
 import { HomeComponent } from './modules/home/home.component';
 import { CardComponent } from './shared/card/card.component';
 import { ResultadosComponent } from './shared/resultados/resultados.component';
 import { TituloComponent } from './shared/titulo/titulo.component';
-import { ListaComponent } from './modules/lista/lista.component';
+import { ListaComponent } from './shared/lista/lista.component';
 import { CancionesTablaComponent } from './shared/canciones-tabla/canciones-tabla.component';
 import { BannerListasComponent } from './shared/banner-listas/banner-listas.component';
-import { AlbumComponent } from './modules/album/album.component';
-import { ArtistaComponent } from './modules/artista/artista.component';
+import { AlbumComponent } from './shared/album/album.component';
+import { ArtistaComponent } from './shared/artista/artista.component';
+import { RegistroComponent } from './modules/Login/registro/registro.component';
+import { AgregarCancionComponent } from './shared/lista/agregar-cancion/agregar-cancion.component';
+import { CancionComponent } from './shared/cancion/cancion.component';
+import { GeneroComponent } from './shared/genero/genero.component';
+import { CrearListaComponent } from './modules/biblioteca/crear-lista/crear-lista.component';
+import { PerfilComponent } from './modules/perfil/perfil.component';
+
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'home/genero', component: GeneroComponent },
   { path: 'buscar', component: BuscarComponent },
+  { path: 'buscar/lista', component: ListaComponent },
+  { path: 'buscar/artista', component: ArtistaComponent },
+  { path: 'buscar/artista/album', component: AlbumComponent },
+  { path: 'buscar/album', component: AlbumComponent },
+  { path: 'buscar/cancion', component: CancionComponent },
+  { path: 'biblioteca', component: BibliotecaComponent, canActivate: [() => inject(LoginGuardian).canActivate()], },
+  { path: 'biblioteca/lista', component: ListaComponent, canActivate: [() => inject(LoginGuardian).canActivate()], },
+  { path: 'biblioteca/artista', component: ArtistaComponent, canActivate: [() => inject(LoginGuardian).canActivate()], },
+  { path: 'biblioteca/artista/album', component: AlbumComponent, canActivate: [() => inject(LoginGuardian).canActivate()], },
+  { path: 'biblioteca/album', component: AlbumComponent, canActivate: [() => inject(LoginGuardian).canActivate()], },
+  { path: 'favoritos', component: ListaComponent, canActivate: [() => inject(LoginGuardian).canActivate()], },
+  { path: 'perfil', component: PerfilComponent, canActivate: [() => inject(LoginGuardian).canActivate()], },
   { path: 'login', component: LoginComponent },
-  { path: 'biblioteca', component: BibliotecaComponent },
-  { path: 'ajustes', component: AjustesComponent },
-  { path: 'lista/:id', component: ListaComponent },
-  { path: 'album/:id', component: AlbumComponent },
-  { path: 'artista/:id', component: ArtistaComponent },
-  // { path: 'biblioteca', component: BibliotecaComponent,
-  // children: [
-  //   { path: 'listas', component: ListasComponent },
-  //   { path: 'artistas', component: ArtistasComponent },
-  //   { path: 'albumes', component: AlbumesComponent },
-  // ]},
+  { path: 'login/registro', component: RegistroComponent },
 ];
 
 @NgModule({
@@ -86,15 +100,19 @@ const appRoutes: Routes = [
     BibliotecaComponent,
     CardComponent,
     BuscarComponent,
-    BannerComponent,
     ResultadosComponent,
     TituloComponent,
-    AjustesComponent,
     ListaComponent,
     CancionesTablaComponent,
     BannerListasComponent,
     AlbumComponent,
-    ArtistaComponent
+    ArtistaComponent,
+    GeneroComponent,
+    RegistroComponent,
+    AgregarCancionComponent,
+    CancionComponent,
+    CrearListaComponent,
+    PerfilComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -122,6 +140,10 @@ const appRoutes: Routes = [
     DropdownModule,
     HttpClientModule,
     DataViewModule,
+    DynamicDialogModule,
+    ConfirmDialogModule,
+    MultiSelectModule,
+    AutoFocusModule
   ],
   providers: [
     HttpClient,
@@ -135,7 +157,11 @@ const appRoutes: Routes = [
     GeneroService,
     ListaService,
     RolService,
+    DialogService,
+    LoginGuardian,
+    FavoritoService,
+    ConfirmationService
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

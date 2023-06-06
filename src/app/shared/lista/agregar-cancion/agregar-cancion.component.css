@@ -1,0 +1,10 @@
+.flex{
+  border: none;
+}
+.container{
+  min-width: 60vh;
+}
+:host ::ng-deep .p-multiselect {
+  max-width: 400px;
+}
+

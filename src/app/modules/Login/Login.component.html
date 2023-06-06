@@ -1,5 +1,4 @@
-<p-toast></p-toast>
-<div class="container loginContainer d-flex justify-content-center align-items-center contenerdor-principal">
+<div class="container loginContainer">
   <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
     <p-panel header="Iniciar sesión">
       <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid d-flex align-items-center flex-column">
@@ -10,9 +9,8 @@
           </span>
           <div class="ui-grid-col-4">
             <div [hidden]="loginForm.controls['email'].valid ||
-                !loginForm.controls['email'].dirty"
-                class="alert alert-danger">
-              Email es un campo obligatorio
+                !loginForm.controls['email'].dirty" class="alert alert-danger">
+              El campo es obligatorio.
             </div>
           </div>
         </div>
@@ -29,13 +27,16 @@
                 loginForm.controls['password'].valid ||
                 !loginForm.controls['password'].dirty
               " class="alert alert-danger">
-              Contraseña es un campo obligatorio
+              El campo es obligatorio.
             </div>
           </div>
         </div>
         <div class="ui-grid-row inputAjuste">
-          <div class="ui-grid-col-6 mt-3">
-            <button pButton type="submit" label="Entrar" [disabled]="!loginForm.valid" (click)="showSuccess()"></button>
+          <div class="ui-grid-col-6 row mt-3">
+            <div class="col-4"><button pButton type="submit" label="Entrar" [disabled]="!loginForm.valid"></button>
+            </div>
+            <div class="col-8 d-flex flex-column justify-content-end align-items-end"><a
+                [routerLink]="['registro']">¿Aún no estas registrado?</a></div>
           </div>
           <div class="ui-grid-col-4"></div>
         </div>

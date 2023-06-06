@@ -1,0 +1,47 @@
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+  <div class="logo-container">
+    <button class="logo d-flex justify-content-center" (click)="toggleCollapse()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" class="bi bi-vinyl-fill" viewBox="0 0 16 16">
+        <path d="M8 6a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm0 3a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/>
+      </svg>
+    </button>
+    <div class="logo-text" *ngIf="collapsed">
+      <a [routerLink]="['']" class="logo-text-link">Rhythm</a>
+    </div>
+    <button class="btn-close" *ngIf="collapsed" (click)="closeSidenav()">
+      <i class="fal fa-times close-icon"></i>
+    </button>
+  </div>
+  <ul class="sidenav-nav">
+    <li class="sidenav-nav-item" *ngFor="let data of navData">
+      <a class="sidenav-nav-link" [routerLink]="[data.routeLink]" routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: false }">
+        <i class="sidenav-link-icon" [class]="data.icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">
+          {{ data.label }}
+        </span>
+      </a>
+    </li>
+
+    <li class="sesion-item" *ngIf="sesionService.isLoged(); else elseBlock">
+      <a class="sidenav-nav-link" [routerLink]="navLogoutData.routeLink" (click)="cerrarSesion()" pRipple (click)="showInfo()" label="Info">
+        <i class="sidenav-link-icon" [class]="navLogoutData.icon"></i>
+        <span class="sidenav-link-text" *ngIf="collapsed">
+          {{ navLogoutData.label }}
+        </span>
+      </a>
+    </li>
+    <ng-template #elseBlock>
+      <li class="sesion-item">
+        <a class="sidenav-nav-link" [routerLink]="navLoginData.routeLink" routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: false }">
+          <i class="sidenav-link-icon" [class]="navLoginData.icon"></i>
+          <span class="sidenav-link-text" *ngIf="collapsed">
+            {{ navLoginData.label }}
+          </span>
+        </a>
+      </li>
+    </ng-template>
+  </ul>
+</div>

@@ -1,7 +1,29 @@
-<a routerLink="{{card.link}}" class="link-sindec">
-  <p-card  header='{{card.titulo}}' subheader="{{card.subTitulo}}" >
-    <ng-template pTemplate="header">
-      <img alt="Card" src="{{card.portada}}" />
-    </ng-template>
-  </p-card>
-</a>
+<div class="tarjeta">
+  <a (click)="abrirLista()" [routerLink]="[this.direccion]" class="link-sindec">
+    <div class="portada">
+      <img alt="Card" src="assets/images/{{ portada }}" />
+    </div>
+  </a>
+  <div class="cuerpo">
+    <a (click)="abrirLista()" [routerLink]="[this.direccion]" class="link-sindec">
+      <div class="titulo">{{ titulo }}</div>
+    </a>
+    <div class="row">
+      <div class="col-8 subtitulo">{{ subTitulo }}</div>
+      <ng-template [ngIf]="mostrarAddFav">
+        <div class="col-4" >
+          <button (click)="accionFavorito()" class="btn normal {{ enFavoritos }}">
+            <i class="pi pi-heart-fill"></i>
+          </button>
+        </div>
+      </ng-template>
+      <ng-template [ngIf]="mostrarRemoveLista">
+        <div class="col-4" >
+          <button (click)="borrarListaUsuario()" class="btn trash">
+            <i class="pi pi-trash"></i>
+          </button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

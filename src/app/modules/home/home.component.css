@@ -3,3 +3,7 @@
   color: white;
   background: black;
 }
+.cardbox-container {
+  display: flex;
+  flex-wrap: wrap;
+}

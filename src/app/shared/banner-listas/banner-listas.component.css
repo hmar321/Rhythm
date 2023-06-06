@@ -16,5 +16,9 @@
 
 .img-thumbnail{
   border: none;
-  max-width: 10rem;
+  width: 10rem;
+}
+
+.col-md-2{
+  min-width: 10rem;
 }

@@ -1,0 +1,80 @@
+<div class="container loginContainer">
+  <form (ngSubmit)="onSubmit()" [formGroup]="registroForm">
+    <p-panel header="Registro">
+      <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid d-flex align-items-center flex-column">
+        <div class="ui-grid-row inputAjuste mt-4">
+          <div class="ui-grid-col-6">
+            <span class="p-float-label">
+              <input pInputText type="text" class="form-control" id="nombre" formControlName="nombre"
+                name="nombre" />
+              <label htmlFor="nombre">Nombre</label>
+            </span>
+          </div>
+          <div class="ui-grid-col-4">
+            <div [hidden]="
+                registroForm.controls['nombre'].valid ||
+                !registroForm.controls['nombre'].dirty
+              " class="alert alert-danger">
+              Error en el campo nombre.
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row inputAjuste mt-4">
+          <div class="ui-grid-col-6">
+            <span class="p-float-label">
+              <input pInputText type="text" class="form-control" id="nick" formControlName="nick"
+                name="nick" />
+              <label htmlFor="nick">Nick</label>
+            </span>
+          </div>
+          <div class="ui-grid-col-4">
+            <div [hidden]="
+                registroForm.controls['nick'].valid ||
+                !registroForm.controls['nick'].dirty
+              " class="alert alert-danger">
+              Error en el campo nick.
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row inputAjuste mt-4">
+          <span class="p-float-label">
+            <input pInputText type="text" class="form-control" id="email" formControlName="email" name="email" />
+            <label htmlFor="email">Email</label>
+          </span>
+          <div class="ui-grid-col-4">
+            <div [hidden]="registroForm.controls['email'].valid ||
+                !registroForm.controls['email'].dirty" class="alert alert-danger">
+              Error en el campo email.
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row inputAjuste mt-4">
+          <div class="ui-grid-col-6">
+            <span class="p-float-label">
+              <input pInputText type="password" class="form-control" id="password" formControlName="password"
+                name="password" />
+              <label htmlFor="password">Contraseña</label>
+            </span>
+          </div>
+          <div class="ui-grid-col-4">
+            <div [hidden]="
+                registroForm.controls['password'].valid ||
+                !registroForm.controls['password'].dirty
+              " class="alert alert-danger">
+              Error en el campo contraseña.
+            </div>
+          </div>
+        </div>
+        <div class="ui-grid-row inputAjuste">
+          <div class="ui-grid-col-6 row mt-3">
+            <div class="col-4"><button pButton type="submit" label="Registrase" [disabled]="!registroForm.valid"></button>
+            </div>
+            <div class="col-8 d-flex flex-column justify-content-end align-items-end"><a
+                [routerLink]="['/login']">¿Ya tienes cuenta?</a></div>
+          </div>
+          <div class="ui-grid-col-4"></div>
+        </div>
+      </div>
+    </p-panel>
+  </form>
+</div>
