@@ -17,27 +17,36 @@
       <ng-template [ngIf]="inListaCreada&&!inFavoritos">
         <th></th>
       </ng-template>
-      <th>
-        <ng-template [ngIf]="addBoton">
+      <ng-template [ngIf]="isLoged&&!addBoton">
+        <th></th>
+      </ng-template>
+      <ng-template [ngIf]="addBoton">
+        <th>
           <button class="btn" (click)="emitirAddCanciones()">
             <i class="pi pi-plus"></i>
           </button>
-        </ng-template>
-      </th>
+        </th>
+      </ng-template>
+
 
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-cancion let-expanded="expanded">
     <tr>
-      <td>{{ cancion.titulo }}</td>
-      <td>{{ cancion.artistas }}</td>
+
+      <td><a (click)="asignarCancion(cancion.id)" routerLink="cancion" class="link-sindec">{{ cancion.titulo }}</a></td>
+      <td>{{ cancion.artistasCadena }}</td>
       <td>{{ cancion.visitas }}</td>
       <td>{{ cancion.duracion }}</td>
-      <td>
-        <button (click)="accionFavorito(cancion)" [ngClass]="{'btn': true, 'favorito': cancion.enFavorito}">
-          <i class="pi pi-heart-fill"></i>
-        </button>
-      </td>
+
+      <ng-template [ngIf]="isLoged">
+        <td>
+          <button (click)="accionFavorito(cancion)" [ngClass]="{'btn': true, 'favorito': cancion.enFavorito}">
+            <i class="pi pi-heart-fill"></i>
+          </button>
+        </td>
+      </ng-template>
+
       <ng-template [ngIf]="inListaCreada&&!inFavoritos">
         <td>
           <button (click)="quitarCancion(cancion)" class="btn quitar">
@@ -45,6 +54,7 @@
           </button>
         </td>
       </ng-template>
+
     </tr>
   </ng-template>
   <ng-template pTemplate="emptymessage">

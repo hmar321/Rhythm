@@ -21,10 +21,7 @@ export class CardComponent implements OnInit {
   enFavoritos: string = '';
   mostrarAddFav: boolean = true;
   mostrarRemoveLista: boolean = false;
-  @Output() listaBorrada: EventEmitter<string> = new EventEmitter();
-  @Output() artistaFavoritont: EventEmitter<string> = new EventEmitter();
-  @Output() albumFavoritont: EventEmitter<string> = new EventEmitter();
-  @Output() listaFavoritont: EventEmitter<string> = new EventEmitter();
+  @Output() elementoQuitado: EventEmitter<string> = new EventEmitter();
 
   constructor(
     private cookieService: CookieService,
@@ -179,6 +176,7 @@ export class CardComponent implements OnInit {
           .subscribe(() => {
             this.favoritoService.eliminarLista(this.card);
             this.enFavoritos = '';
+            this.elementoQuitado.emit();
           });
         break;
 
@@ -188,6 +186,7 @@ export class CardComponent implements OnInit {
           .subscribe(() => {
             this.favoritoService.eliminarAlbum(this.card);
             this.enFavoritos = '';
+            this.elementoQuitado.emit();
           });
         break;
 
@@ -197,6 +196,7 @@ export class CardComponent implements OnInit {
           .subscribe(() => {
             this.favoritoService.eliminarArtista(this.card);
             this.enFavoritos = '';
+            this.elementoQuitado.emit();
           });
         break;
 
@@ -206,6 +206,7 @@ export class CardComponent implements OnInit {
           .subscribe(() => {
             this.favoritoService.eliminarCancion(this.card);
             this.enFavoritos = '';
+            this.elementoQuitado.emit();
           });
         break;
 
@@ -223,7 +224,7 @@ export class CardComponent implements OnInit {
           this.messageService.add({ severity: 'info', summary: 'Aceptar', detail: 'Se ha borrado la lista.' });
           this.listaService.deleteLista(+this.card.id).subscribe(() => {
             this.favoritoService.eliminarListaCreada(this.card);
-            this.listaBorrada.emit();
+            this.elementoQuitado.emit();
           });
       },
       reject: (type:number) => {

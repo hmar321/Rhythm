@@ -16,7 +16,7 @@ export class AlbumComponent implements OnInit {
   portada: string = '';
   canciones: Cancion[] | undefined;
   estreno: Date | undefined;
-  id:number=-1;
+  id: number = -1;
   album: Album | undefined;
   constructor(
     private albumService: AlbumService,
@@ -24,7 +24,7 @@ export class AlbumComponent implements OnInit {
   ) {
   }
   ngOnInit() {
-    if (this.id<1) {
+    if (this.id < 1) {
       this.id = +this.cookieService.get('AlbumId');
     }
     this.albumService.findAlbumById(this.id).subscribe((album) => {
@@ -35,6 +35,9 @@ export class AlbumComponent implements OnInit {
       this.portada = 'assets/images/' + this.album.portada!;
       this.canciones = this.album.canciones!;
       this.estreno = this.album.estreno!;
+      album.canciones = [];
+      album.visitas = (album.visitas || 0) + 1;
+      this.albumService.updateAlbum(album).subscribe();
     });
   }
 }

@@ -11,7 +11,7 @@ export class ResultadosComponent implements OnInit {
   @Input() insertAddButton: any;
   @Input() ruta: any;
   @Output() boton: EventEmitter<boolean> = new EventEmitter();
-  @Output() listaBorrada: EventEmitter<string> = new EventEmitter();
+  @Output() elementoQuitado: EventEmitter<string> = new EventEmitter();
   constructor() {
     if (this.insertAddButton==null) {
       this.insertAddButton=false;
@@ -27,8 +27,8 @@ export class ResultadosComponent implements OnInit {
     this.boton.emit(true);
   }
 
-  eventoListaBorrada(){
-    this.listaBorrada.emit();
+  eventoElementoQuitado(){
+    this.elementoQuitado.emit();
   }
 }
 

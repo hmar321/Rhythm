@@ -4,6 +4,7 @@ import { CancionService } from 'src/app/services/data/cancion.service';
 import { ListaService } from 'src/app/services/data/lista.service';
 import { FavoritoService } from 'src/app/services/util/favorito.service';
 import { CookieService } from 'ngx-cookie-service';
+import { SesionService } from './../../services/util/sesion.service';
 
 @Component({
   selector: 'app-canciones-tabla',
@@ -17,10 +18,12 @@ export class CancionesTablaComponent implements OnInit {
   @Input() inFavoritos: any;
   @Output() addCanciones = new EventEmitter<string>();
   btnEliminar: boolean = false;
-  constructor(public favoritoService: FavoritoService, private listaService: ListaService, private cancionService: CancionService, private cookieService: CookieService) {
+  isLoged:boolean=false;
+  constructor(private sesionService:SesionService,public favoritoService: FavoritoService, private listaService: ListaService, private cancionService: CancionService, private cookieService: CookieService) {
   }
 
   ngOnInit() {
+    this.isLoged=this.sesionService.isLoged();
     if (this.addBoton == null) {
       this.addBoton = false;
     }
@@ -34,9 +37,6 @@ export class CancionesTablaComponent implements OnInit {
       this.canciones.forEach((cancion: Cancion) => {
         cancion.enFavorito = this.favoritoService.existeEnCanciones(cancion);
       });
-    }
-    if (this.addBoton) {
-
     }
   }
 
@@ -87,5 +87,9 @@ export class CancionesTablaComponent implements OnInit {
      const index = ids.indexOf(cancion.id);
       this.canciones.splice(index, 1);
     });;
+  }
+
+  asignarCancion(id:number){
+    this.cookieService.set('CancionId',id+"");
   }
 }

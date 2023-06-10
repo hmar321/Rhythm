@@ -7,7 +7,7 @@ export interface Cancion {
   visitas?: number|null;
   duracion?: Date|null;
   estreno?:Date|null;
-  artistas?: string|null;
+  artistasCadena?: string|null;
   lyrics?:string|null;
   enFavorito:boolean|null;
 }

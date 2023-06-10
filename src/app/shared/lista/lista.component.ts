@@ -26,19 +26,19 @@ export class ListaComponent implements OnInit {
   id: number = -1;
   inFavoritos: boolean = false;
   inListasCreadas: boolean = false;
-  ref: DynamicDialogRef|undefined;
+  ref: DynamicDialogRef | undefined;
   constructor(
     private router: Router,
     private listaService: ListaService,
     private cookieService: CookieService,
-    private dialogService:DialogService,
-    private favoritoService:FavoritoService
+    private dialogService: DialogService,
+    private favoritoService: FavoritoService
   ) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/favoritos') {
           this.inFavoritos = true;
-          this.inListasCreadas=true;
+          this.inListasCreadas = true;
         }
       }
     });
@@ -49,17 +49,21 @@ export class ListaComponent implements OnInit {
       const cadena = localStorage.getItem('UsuarioListaFavoritos');
       if (cadena) {
         this.lista = JSON.parse(cadena);
+        const auxLista = Object.assign({}, this.lista);
+        auxLista.canciones = [];
+        auxLista.visitas = (auxLista.visitas || 0) + 1;
+        this.listaService.updateLista(auxLista).subscribe();
         this.asignarValores();
-        this.cookieService.set('ListaId',this.lista!.id+"");
-        this.id=this.lista!.id!;
+        this.cookieService.set('ListaId', this.lista!.id + "");
+        this.id = this.lista!.id!;
       }
     } else {
       this.id = +this.cookieService.get('ListaId');
       this.buscarLista();
-      const listasCreadas:Lista[]=JSON.parse(localStorage.getItem('UsuarioListasCreadas')!);
-      const ids=listasCreadas.map(lista=>lista.id);
-      if (ids.indexOf(this.id)!==-1) {
-        this.inListasCreadas=true;
+      const listasCreadas: Lista[] = JSON.parse(localStorage.getItem('UsuarioListasCreadas')!);
+      const ids = listasCreadas.map(lista => lista.id);
+      if (ids.indexOf(this.id) !== -1) {
+        this.inListasCreadas = true;
       }
     }
   }
@@ -68,14 +72,18 @@ export class ListaComponent implements OnInit {
     this.listaService.findListaById(this.id).subscribe((lista) => {
       this.lista = lista;
       if (this.inFavoritos) {
-        localStorage.setItem('UsuarioListaFavoritos',JSON.stringify(lista));
-        localStorage.setItem('UsuarioCanciones',JSON.stringify(lista.canciones));
+        localStorage.setItem('UsuarioListaFavoritos', JSON.stringify(this.lista));
+        localStorage.setItem('UsuarioCanciones', JSON.stringify(this.lista.canciones));
       }
       if (this.lista!.canciones != null) {
         this.lista!.canciones.forEach((cancion: Cancion) => {
           cancion.enFavorito = this.favoritoService.existeEnCanciones(cancion);
         });
       }
+      const auxLista = Object.assign({}, this.lista);
+      auxLista.canciones = [];
+      auxLista.visitas = (auxLista.visitas || 0) + 1;
+      this.listaService.updateLista(auxLista).subscribe();
       this.asignarValores();
     });
   }
@@ -89,7 +97,7 @@ export class ListaComponent implements OnInit {
     this.portada = 'assets/images/' + this.lista!.portada!;
   }
 
-  addCancionesDialog(){
+  addCancionesDialog() {
     this.ref = this.dialogService.open(AgregarCancionComponent, {
       header: 'Añadir cancion',
       height: '70%',
@@ -97,7 +105,7 @@ export class ListaComponent implements OnInit {
       baseZIndex: 10000,
       maximizable: true
     });
-    this.ref.onClose.subscribe(()=>{
+    this.ref.onClose.subscribe(() => {
       this.buscarLista();
     });
   }

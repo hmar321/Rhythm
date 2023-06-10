@@ -29,6 +29,9 @@ export class GeneroComponent implements OnInit {
       this.visitas = this.genero.visitas!;
       this.portada = 'assets/images/' + this.genero.portada!;
       this.canciones = this.genero.canciones!;
+      genero.canciones=[];
+      genero.visitas = (genero.visitas || 0) + 1;
+      this.generoService.updateGenero(genero).subscribe();
     });
   }
 }

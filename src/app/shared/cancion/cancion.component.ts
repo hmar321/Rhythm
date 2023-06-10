@@ -23,14 +23,14 @@ export class CancionComponent implements OnInit {
   constructor(
     private cancionService: CancionService,
     private cookieService: CookieService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.id = +this.cookieService.get('CancionId');
     this.cancionService.findCancionById(this.id).subscribe((cancion) => {
       this.cancion = cancion;
       this.tituloCancion = this.cancion.titulo!;
-      this.artistasNombres = this.cancion.artistas!;
+      this.artistasNombres = this.cancion.artistasCadena!;
       this.visitas = this.cancion.visitas!;
       this.portada = 'assets/images/' + this.cancion.portada!;
       this.estreno = this.cancion.estreno!;
@@ -41,18 +41,13 @@ export class CancionComponent implements OnInit {
       ) {
         this.letra = 'Letra sin asignar.';
       } else {
-        this.lyrics=this.cancion.lyrics!.split(';');
-        this.lyrics.forEach((linea, index) => {
-          if (index < this.lyrics.length / 2) {
-            this.letra += linea;
-            this.letra += '\n';
-          } else if (index <= this.lyrics.length) {
-            this.letra2 += linea;
-            this.letra2 += '\n';
-          }
-
-        });
+        this.lyrics = this.cancion.lyrics!.split(';');
+        const halfLength = this.lyrics.length / 2;
+        this.letra = this.lyrics.slice(0, halfLength).join('\n');
+        this.letra2 = this.lyrics.slice(halfLength).join('\n');
       }
+      cancion.visitas=(cancion.visitas||0)+1;
+      this.cancionService.updateCancion(cancion).subscribe();
     });
   }
 }

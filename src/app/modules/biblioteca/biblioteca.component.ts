@@ -36,7 +36,24 @@ export class BibliotecaComponent implements OnInit {
       { label: 'Álbums', icon: 'pi pi-server' },
     ];
     this.activeItem = this.items[0];
+    this.actualizarBiblioteca();
+  }
+  ngOnInit() {
+  }
+  onActiveItemChange(event: MenuItem) {
+    this.activeItem = event;
+  }
+  botonPresionado(boton: boolean) {
+    if (boton && this.activeItem == this.items[0]) {
+      this.crearLista();
+    } else if (boton && this.activeItem == this.items[1]) {
+      this.router.navigate(['/buscar']);
+    } else if (boton && this.activeItem == this.items[2]) {
+      this.router.navigate(['/buscar']);
+    }
+  }
 
+  actualizarBiblioteca(){
     let cadena = localStorage.getItem('UsuarioArtistas');
     if (cadena) {
       this.artistas = JSON.parse(cadena);
@@ -60,38 +77,6 @@ export class BibliotecaComponent implements OnInit {
     }else{
       this.listas=this.listasCreadas;
     }
-
-  }
-  ngOnInit() {
-  }
-  onActiveItemChange(event: MenuItem) {
-    this.activeItem = event;
-  }
-  botonPresionado(boton: boolean) {
-    if (boton && this.activeItem == this.items[0]) {
-      this.crearLista();
-    } else if (boton && this.activeItem == this.items[1]) {
-      this.router.navigate(['/buscar']);
-    } else if (boton && this.activeItem == this.items[2]) {
-      this.router.navigate(['/buscar']);
-    }
-  }
-  actualizarListas(){
-    let cadena = localStorage.getItem('UsuarioListasCreadas');
-    if (cadena) {
-      this.listasCreadas = JSON.parse(cadena);
-      this.listasCreadas!.splice(0, 1);
-    }
-    cadena = localStorage.getItem('UsuarioListas');
-    if (cadena) {
-      this.listasOtros = JSON.parse(cadena);
-    }
-
-    if (this.listasOtros?.length != 0) {
-      this.listas=this.listasCreadas?.concat(this.listasOtros!);
-    }else{
-      this.listas=this.listasCreadas;
-    }
   }
 
   crearLista() {
@@ -99,7 +84,7 @@ export class BibliotecaComponent implements OnInit {
       header: 'Título lista',
     });
     this.ref.onClose.subscribe(()=>{
-      this.actualizarListas();
+      this.actualizarBiblioteca();
     });
   }
 
