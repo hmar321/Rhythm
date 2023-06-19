@@ -51,25 +51,23 @@ export class CardComponent implements OnInit {
         break;
 
       case 'genero':
-        this.subTitulo = this.card.artistas;
         this.mostrarAddFav = false;
         break;
 
       case 'album':
-        this.subTitulo = this.card.artistas;
+        this.subTitulo = this.card.artistasCadena;
         if (this.favoritoService.existeEnAlbum(this.card)) {
           this.enFavoritos = 'favorito';
         }
         break;
 
       case 'artista':
-        this.subTitulo = this.card.artistas;
         if (this.favoritoService.existeEnArtista(this.card)) {
           this.enFavoritos = 'favorito';
         }
         break;
       case 'cancion':
-        this.subTitulo = this.card.artistas;
+        this.subTitulo = this.card.artistasCadena;
         if (this.favoritoService.existeEnCanciones(this.card)) {
           this.enFavoritos = 'favorito';
         }

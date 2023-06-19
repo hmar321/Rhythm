@@ -7,7 +7,7 @@ import { Rol } from 'src/app/model/data/Rol';
   providedIn: 'root',
 })
 export class RolService {
-  host: string = 'https://rhythmback-production.up.railway.app';
+  host: string = 'http://localhost:7116';
   api: string = '/api/rol';
 
   constructor(private http: HttpClient) {}

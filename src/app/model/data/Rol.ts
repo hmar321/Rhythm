@@ -1,8 +1,14 @@
 import { Usuario } from './Usuario';
 
-export interface Rol {
-  id?: number;
-  nombre?: string|null;
-  descripcion?: string|null;
-  usuarios?: Usuario[]|null;
+export class Rol {
+  id: number | null;
+  nombre: string | null;
+  descripcion: string | null;
+
+  constructor() {
+    this.id = 0;
+    this.nombre = null;
+    this.descripcion = null;
+  }
+
 }

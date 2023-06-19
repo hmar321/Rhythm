@@ -12,18 +12,17 @@ export class LoginComponent implements OnInit {
   password: string = '';
   loginForm: FormGroup;
 
-  submitted = false;
   constructor(private sesionService: SesionService) {
     this.loginForm = new FormGroup({
-      email: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required),
+      email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(50)]),
+      password: new FormControl('', [Validators.required, Validators.maxLength(50)])
     });
   }
 
   ngOnInit() { }
 
   onSubmit() {
-    this.submitted = true;
     this.sesionService.loguear(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value);
   }
+
 }

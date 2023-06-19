@@ -10,7 +10,7 @@
   <div class="row user-body">
     <div class="forms-container row ">
       <div class="d-flex justify-content-center formulario">
-        <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
           <div class=" ui-grid ui-grid-responsive ui-grid-pad ui-fluid d-flex align-items-start flex-column">
             <div class="datos-titulo">Datos</div>
             <div class="ui-grid-row mt-5">
@@ -22,8 +22,8 @@
               <div class="ui-grid-col-4">
                 <div [hidden]="
                   sinEnviar ||
-                  loginForm.controls['email'].valid ||
-                  !loginForm.controls['email'].dirty
+                  userForm.controls['email'].valid ||
+                  !userForm.controls['email'].dirty
                 " class="alert alert-danger">
                   Error en el campo email.
                 </div>
@@ -40,8 +40,8 @@
               <div class="ui-grid-col-4">
                 <div [hidden]="
                   sinEnviar ||
-                  loginForm.controls['nombre'].valid ||
-                  !loginForm.controls['nombre'].dirty
+                  userForm.controls['nombre'].valid ||
+                  !userForm.controls['nombre'].dirty
                 " class="alert alert-danger">
                   Error en el campo nombre.
                 </div>
@@ -58,8 +58,8 @@
               <div class="ui-grid-col-4">
                 <div [hidden]="
                   sinEnviar ||
-                  loginForm.controls['nick'].valid ||
-                  !loginForm.controls['nick'].dirty
+                  userForm.controls['nick'].valid ||
+                  !userForm.controls['nick'].dirty
                 " class="alert alert-danger">
                   Error en el campo nick.
                 </div>

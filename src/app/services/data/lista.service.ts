@@ -7,7 +7,7 @@ import { Lista } from 'src/app/model/data/Lista';
   providedIn: 'root',
 })
 export class ListaService {
-  host: string = 'https://rhythmback-production.up.railway.app';
+  host: string = 'http://localhost:7116';
   api: string = '/api/lista';
 
   constructor(private http: HttpClient) { }

@@ -34,6 +34,7 @@ export class ListaComponent implements OnInit {
     private dialogService: DialogService,
     private favoritoService: FavoritoService
   ) {
+    // si me encuentro en la ruta de "/favoritos"
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/favoritos') {
@@ -45,8 +46,11 @@ export class ListaComponent implements OnInit {
   }
 
   ngOnInit() {
+    // si estamos en favoritos
     if (this.inFavoritos) {
+      // buscamos la lista de favoritos en localStorage
       const cadena = localStorage.getItem('UsuarioListaFavoritos');
+      // si tiene valor lo inicializa
       if (cadena) {
         this.lista = JSON.parse(cadena);
         const auxLista = Object.assign({}, this.lista);
@@ -68,6 +72,7 @@ export class ListaComponent implements OnInit {
     }
   }
 
+  //método para buscar cualquier lista
   buscarLista() {
     this.listaService.findListaById(this.id).subscribe((lista) => {
       this.lista = lista;
@@ -87,8 +92,7 @@ export class ListaComponent implements OnInit {
       this.asignarValores();
     });
   }
-
-
+  // asignacion de valores
   asignarValores() {
     this.tituloLista = this.lista!.titulo!;
     this.usuarioNombre = this.lista!.creadorNick!;
@@ -96,7 +100,7 @@ export class ListaComponent implements OnInit {
     this.canciones = this.lista!.canciones!;
     this.portada = 'assets/images/' + this.lista!.portada!;
   }
-
+  // dialogo para añadir canciones
   addCancionesDialog() {
     this.ref = this.dialogService.open(AgregarCancionComponent, {
       header: 'Añadir cancion',

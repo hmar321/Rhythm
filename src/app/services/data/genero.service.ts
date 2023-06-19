@@ -6,7 +6,7 @@ import { Genero } from 'src/app/model/data/Genero';
   providedIn: 'root',
 })
 export class GeneroService {
-  host: string = 'https://rhythmback-production.up.railway.app';
+  host: string = 'http://localhost:7116';
   api: string = '/api/genero';
 
   constructor(private http: HttpClient) {}

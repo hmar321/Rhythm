@@ -7,7 +7,7 @@ import { Cancion } from 'src/app/model/data/Cancion';
   providedIn: 'root',
 })
 export class CancionService {
-  host: string = 'https://rhythmback-production.up.railway.app';
+  host: string = 'http://localhost:7116';
   api: string = '/api/cancion';
 
   constructor(private http: HttpClient) { }

@@ -7,7 +7,7 @@ import { Artista } from 'src/app/model/data/Artista';
   providedIn: 'root',
 })
 export class ArtistaService {
-  host: string = 'https://rhythmback-production.up.railway.app';
+  host: string = 'http://localhost:7116';
   api: string = '/api/artista';
 
   constructor(private http: HttpClient) {}

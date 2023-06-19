@@ -7,7 +7,7 @@ import { Album } from 'src/app/model/data/Album';
   providedIn: 'root',
 })
 export class AlbumService {
-  host: string = 'https://rhythmback-production.up.railway.app';
+  host: string = 'http://localhost:7116';
   api: string = '/api/album';
 
   constructor(private http: HttpClient) {}

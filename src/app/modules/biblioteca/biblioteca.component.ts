@@ -16,20 +16,21 @@ import { CrearListaComponent } from './crear-lista/crear-lista.component';
 })
 export class BibliotecaComponent implements OnInit {
   items: MenuItem[];
+  @ViewChild('menuItems')
+  menu: MenuItem[] = [];
   activeItem: MenuItem;
   artistas: Artista[] | undefined;
   albums: Album[] | undefined;
   listasOtros: Lista[] | undefined;
   listasCreadas: Lista[] | undefined;
   listas: Lista[] | undefined;
-  @ViewChild('menuItems')
-  menu: MenuItem[] = [];
   ref: DynamicDialogRef|undefined;
   constructor(
     public dialogService: DialogService,
     private router: Router,
     public sesionService: SesionService
   ) {
+    // inizializo el menu de pestañas
     this.items = [
       { label: 'Listas', icon: 'pi pi-save' },
       { label: 'Artistas', icon: 'pi pi-star' },
@@ -40,10 +41,12 @@ export class BibliotecaComponent implements OnInit {
   }
   ngOnInit() {
   }
+  // cuando se cambia de pestaña se actualiza el item activo
   onActiveItemChange(event: MenuItem) {
     this.activeItem = event;
   }
-  botonPresionado(boton: boolean) {
+  // metodo para realizar añadir elementos dependiendo de la pestaña
+  botonAddPresionado(boton: boolean) {
     if (boton && this.activeItem == this.items[0]) {
       this.crearLista();
     } else if (boton && this.activeItem == this.items[1]) {
@@ -52,7 +55,7 @@ export class BibliotecaComponent implements OnInit {
       this.router.navigate(['/buscar']);
     }
   }
-
+  // actualizo los valores con los datos de localStorage
   actualizarBiblioteca(){
     let cadena = localStorage.getItem('UsuarioArtistas');
     if (cadena) {
@@ -71,14 +74,13 @@ export class BibliotecaComponent implements OnInit {
     if (cadena) {
       this.listasOtros = JSON.parse(cadena);
     }
-
     if (this.listasOtros?.length != 0) {
       this.listas=this.listasCreadas?.concat(this.listasOtros!);
     }else{
       this.listas=this.listasCreadas;
     }
   }
-
+  // creo un dialogo para crear una nueva lista
   crearLista() {
     this.ref = this.dialogService.open(CrearListaComponent, {
       header: 'Título lista',

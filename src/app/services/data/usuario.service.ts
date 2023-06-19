@@ -1,15 +1,19 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, of, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Usuario } from 'src/app/model/data/Usuario';
 @Injectable({
   providedIn: 'root',
 })
 export class UsuarioService {
-  host: string = 'https://rhythmback-production.up.railway.app';
+  host: string = 'http://localhost:7116';
   api: string = '/api/usuario';
 
   constructor(private http: HttpClient) { }
+  // preparación de la llamada desde angular
+  insertUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(this.host + this.api, usuario);
+  }
 
   findAllUsuarios(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>(this.host + this.api);
@@ -17,10 +21,6 @@ export class UsuarioService {
 
   findUsuarioById(id: number): Observable<Usuario> {
     return this.http.get<Usuario>(this.host + this.api + '/' + id);
-  }
-
-  insertUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.host + this.api, usuario);
   }
 
   updateUsuario(usuario: Usuario): Observable<boolean> {

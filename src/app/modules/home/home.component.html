@@ -3,9 +3,4 @@
     <h3>Generos</h3>
   <app-resultados class="cardbox-container" [resultados]="generos" [ruta]="'genero'"></app-resultados>
   </ng-template>
-  <ng-template [ngIf]="listas.length!=0">
-    <p-divider></p-divider>
-    <app-titulo [titulo]="'Tus listas'"></app-titulo>
-    <app-resultados class="cardbox-container" [resultados]="listas" [ruta]="'lista'"></app-resultados>
-  </ng-template>
 </div>

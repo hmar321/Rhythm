@@ -30,7 +30,7 @@ export class AlbumComponent implements OnInit {
     this.albumService.findAlbumById(this.id).subscribe((album) => {
       this.album = album;
       this.tituloAlbum = this.album.titulo!;
-      this.artistasNombres = this.album.artistas!;
+      this.artistasNombres = this.album.artistasCadena!;
       this.visitas = this.album.visitas!;
       this.portada = 'assets/images/' + this.album.portada!;
       this.canciones = this.album.canciones!;

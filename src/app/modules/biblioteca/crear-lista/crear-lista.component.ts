@@ -13,9 +13,12 @@ import { MessageService } from 'primeng/api';
 })
 export class CrearListaComponent implements OnInit {
   tituloLista: string = '';
-  lista: Lista = {};
+  lista: Lista = new Lista();
 
-  constructor(private listaService: ListaService, private ref: DynamicDialogRef, private favoritoService: FavoritoService, private messageService: MessageService) { }
+  constructor(private listaService: ListaService,
+    private ref: DynamicDialogRef,
+    private favoritoService: FavoritoService,
+    private messageService: MessageService) { }
 
   ngOnInit() { }
 
@@ -33,23 +36,28 @@ export class CrearListaComponent implements OnInit {
     this.lista.visitas = 0;
     this.lista.creadorNick = localStorage.getItem('UsuarioNick')!;
     this.lista.creadorId = +localStorage.getItem('UsuarioId')!;
-    lastValueFrom(this.listaService.insertLista(this.lista))
-      .then((lista) => {
+    console.log(this.lista, "lista entes de enviar");
+    this.listaService.insertLista(this.lista).subscribe({
+      next: (lista) => {
         this.messageService.add({
           severity: 'success',
           summary: 'Éxito',
           detail: 'Se ha creado la lista correctamente.',
         });
         this.favoritoService.agregarListaCreada(lista);
-        this.ref.close();
-      })
-      .catch((error) => {
+      },
+      error: (err) => {
+        console.log(err);
         this.messageService.add({
           severity: 'warn',
           summary: 'Error',
           detail: 'No se ha creado la lista.',
         });
-      });
+      },
+      complete: () => {
+        this.ref.close();
+      },
+    });
   }
 
 }

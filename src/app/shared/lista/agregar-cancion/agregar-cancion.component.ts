@@ -76,12 +76,15 @@ export class AgregarCancionComponent implements OnInit {
             return of(null);
           })
         )
-        .subscribe(() => {
-          this.messageService.add({
-            severity: 'success',
-            summary: 'Éxito',
-            detail: 'Se han añadido las canciones no repetidas.',
-          });
+        .subscribe({
+          complete: () => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Éxito',
+              detail: 'Se han añadido las canciones no repetidas.',
+            });
+            this.ref.close();
+          },
         });
     }
 
